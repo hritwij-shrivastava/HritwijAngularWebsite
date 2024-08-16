@@ -1,0 +1,63 @@
+<>
+<Helmet>
+    <link rel="canonical" href="https://hritwij.com/about/" />
+</Helmet>
+
+<div class="firstcontainer">
+    {/* <ModalVideo channel='youtube' autoplay isOpen={this.state.isOpen} videoId="WnfuIAJJ4G0" onClose={() => this.setState({ isOpen: false })} /> */}
+    <ModalVideo channel='custom' url="/intro.mp4" isOpen={this.state.isOpen} onClose={() => this.setState({ isOpen: false })} />
+    <AboutMe />
+    <AboutEduSection />
+    <section class="fun-facts-area text-lg-left">
+        <div class="contaienr-fluid px-0">
+            <div class="row align-items-center no-gutters">
+                <div class="col-xl-6">
+                    <div class="video-area">
+                        <img src="/hrlaptop.jpg" alt="fun-facts-video-thumbnail" />
+                        <button  class="video-play-btn" onClick={this.onClick}>
+                            <i class="fa fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-xl-5">
+                    <div class="fun-fact-info">
+                        <div class="section-title margin-bottom-30">
+                            <h3 class="sub-title">Fun Facts</h3>
+                            <h2 class="title text-white">Please have a look at small intro about myself</h2>
+                        </div>
+                        <div class="fun-fact-content margin-bottom-55">
+                            <blockquote class="blockquote" style={{padding: 0}}>
+                                <p class="mb-2">“The future belongs to those who learn more skills and combine them in creative ways.”</p>
+                                <div class="blockquote-footer mt-0">Robert Greene, Mastery</div>
+                            </blockquote>
+                        </div>
+                        <div class="feature-area">
+                            <div class="row justify-content-center justify-content-lg-start">
+                                <div class="col-sm-5">
+                                    <div class="single-feature">
+                                        <div class="feature-left">
+                                            <h2>40<sub>+</sub></h2>
+                                        </div>
+                                        <h4 class="feature-title">Projects Done</h4>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="single-feature">
+                                        <div class="feature-left ml-xl-12">
+                                            <h2>20<sub>+</sub></h2>
+                                        </div>
+                                        <h4 class="feature-title">Happy Clients</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class='smallColordsgn' style={{ width: "100%" }}>
+        <SmallSkill />
+    </div>
+</div>
+</>

@@ -1,0 +1,162 @@
+<>
+<ScrollToTop/>
+<Helmet>
+    <meta name="description" content={textAreaArray[1]} />
+    <meta name="keywords" content={textAreaArray[2]} />
+    <meta name="author" content={textAreaArray[3]}/>
+
+    <title>{this.props.blog.blogTitle}</title>
+    <link rel="canonical" href={this.context.webAddress + this.props.blog.url} />
+
+</Helmet>
+<div class="main-wrapperBlog" >
+    <LightBox ref={this.child} images={this.state.images} />
+    <article class="blog-post px-3 py-5 p-md-5" style={{ marginBottom: "50px" }}>
+        <div class="container single-col-max-width">
+            <header class="blog-post-header">
+                <h1 class="title mb-2">{this.props.blog.blogTitle}</h1>
+                <div class="meta mb-3">
+                    <span class="dateBlog" style={{ fontFamily: "sans-serif" }}>Published on {moment(this.props.blog.date).format('DD MMM YYYY')}</span>
+                    <span class="comment" style={{ fontFamily: "sans-serif" }}>{this.props.blog.totalView} views</span>
+                </div>
+            </header>
+
+
+
+            <div class="blog-post-body">
+                {Object.keys(tagArray).map((position, index) => {
+                    return (
+                        <React.Fragment key={position * index * 6985 + position * 985}>
+                            {(tagArray[position] === "h1") ?
+                                <h1 class="mt-5 mb-3 boldHeading">{textAreaArray[position]}</h1>
+                                : null}
+
+                            {(tagArray[position] === "h2") ?
+                                <h2 class="mt-5 mb-3 boldHeading">{textAreaArray[position]}</h2>
+                                : null}
+
+                            {(tagArray[position] === "h3") ?
+                                <h3 class="mt-5 mb-3 boldHeading">{textAreaArray[position]}</h3>
+                                : null}
+
+                            {(tagArray[position] === "h4") ?
+                                <h4 class="mt-5 mb-3 boldHeading">{textAreaArray[position]}</h4>
+                                : null}
+
+                            {(tagArray[position] === "h5") ?
+                                <h5 class="mt-5 mb-3 boldHeading">{textAreaArray[position]}</h5>
+                                : null}
+
+                            {(tagArray[position] === "h6") ?
+                                <h6 class="mt-5 mb-3 boldHeading">{textAreaArray[position]}</h6>
+                                : null}
+
+                            {(tagArray[position] === "p") ?
+                                <p dangerouslySetInnerHTML={{ __html: textAreaArray[position] }}></p>
+                                : null}
+
+                            {(tagArray[position] === "code") ?
+                                <>
+                                    <SyntaxHighlighter language={textAreaArray[position][2]} style={monokai}>
+                                        {textAreaArray[position][1]}
+                                    </SyntaxHighlighter>
+                                </>
+                                : null}
+                            {(tagArray[position] === "code_output") ?
+                                <>
+                                    <SyntaxHighlighter language={textAreaArray[position][2]} style={a11y_light}>
+                                        {textAreaArray[position][1]}
+                                    </SyntaxHighlighter>
+                                </>
+                                : null}
+
+                            {(tagArray[position] === "img") ?
+                                <figure class="blog-banner">
+                                    <a href={`${this.context.webAddress}${textAreaArray[position][1]}`} target="_blank" rel="noopener noreferrer">
+                                        <img class="img-fluidBlog" src={`${this.context.webAddress}${textAreaArray[position][1]}`} alt={textAreaArray[position][2]} />
+                                    </a>
+                                </figure>
+                                : null}
+
+                            {(tagArray[position] === "ul") ?
+                                <ul class="mb-5">
+                                    {Object.keys(textAreaArray[position]).map((li_position, li_index) => {
+                                        return (
+                                            <li class="mb-2" key={li_position * li_index * 98 + li_position}>{textAreaArray[position][li_position]}</li>
+                                        )
+                                    }
+                                    )}
+                                </ul>
+                                : null}
+
+                            {(tagArray[position] === "ol") ?
+                                <ol class="mb-5">
+                                    {Object.keys(textAreaArray[position]).map((li_position, li_index) => {
+                                        return (
+                                            <li class="mb-2" key={li_position * li_index * 23 + 5 * li_position}>{textAreaArray[position][li_position]}</li>
+                                        )
+                                    }
+                                    )}
+                                </ol>
+                                : null}
+
+                            {(tagArray[position] === "blockquote") ?
+                                <blockquote class="blockquote m-lg-5 py-3 blogQuoteLined ps-4 px-lg-5">
+                                    <p class="mb-2">{textAreaArray[position][1]}</p>
+                                    <div class="blockquote-footer mt-0">{textAreaArray[position][2]}</div>
+                                </blockquote>
+                                : null}
+
+                            {(tagArray[position] === "iframe") ?
+                                <div class="ratio ratio-16x9">
+                                    <iframe title="My lec" width="560" height="315" src={textAreaArray[position]} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe>
+                                </div>
+                                : null}
+
+                            {(tagArray[position] === "table") ?
+                                <TableViewer textAreaArray={textAreaArray[position]} />
+                                : null}
+
+                            {(tagArray[position] === "pdf") ?
+                                <div class="mt-4">
+                                    <PdfViewer pdf={`${this.context.webAddress}${textAreaArray[position]}`} />
+                                </div>
+                                : null}
+
+                            {(tagArray[position] === "pptx") ?
+                                <div class="mt-4">
+                                    <PptViewer update={this.update} img={textAreaArray[position]["img"]} />
+                                </div>
+                                : null}
+
+                            {(tagArray[position] === "csv") ?
+                                <CsvViewer textAreaArray={textAreaArray[position]} />
+                                : null}
+                        </React.Fragment>
+                    )
+                })}
+            </div>
+
+
+
+
+            <nav class="blog-nav nav nav-justified my-5">
+                <Link  class="nav-link-prev nav-item nav-link rounded-left" to={( (typeof textAreaArray[4] === "undefined") || (textAreaArray[4] === "") ) ?"/blog": textAreaArray[4]}>
+                    Previous
+                    <svg style={{ height: "1em" }} class="svg-inline--fa fa-long-arrow-alt-left fa-w-14 arrow-prev" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="long-arrow-alt-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                        <path fill="currentColor" d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"></path>
+                    </svg>
+                </Link>
+                <Link class="nav-link-next nav-item nav-link rounded-right" to={( (typeof textAreaArray[5] === "undefined") || (textAreaArray[5] === "") ) ?"/blog": textAreaArray[5]}>
+                    Next
+                    <svg style={{ height: "1em" }} class="svg-inline--fa fa-long-arrow-alt-right fa-w-14 arrow-next" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="long-arrow-alt-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                        <path fill="currentColor" d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"></path>
+                    </svg>
+                    
+                </Link>
+            </nav>
+        </div>
+    </article>
+</div >
+<BottomNavbar />
+</>

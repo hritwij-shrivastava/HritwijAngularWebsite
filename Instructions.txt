@@ -1,0 +1,22 @@
+ng new frontend --no-standalone
+ng add @angular/material
+npm install @sanity/client @sanity/image-url
+
+
+ng g c modules/home 
+ng g c modules/about 
+ng g c modules/services 
+ng g c modules/portfolio 
+ng g c modules/blog 
+ng g c modules/contact 
+
+ng g c modules/shared/navbar
+ng g c modules/shared/footer
+
+ng generate service service/sanity
+
+npm i ngx-owl-carousel-o
+npm install bootstrap
+npm install jquery
+ng add @ng-bootstrap/ng-bootstrap
+

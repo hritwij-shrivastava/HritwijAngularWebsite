@@ -1,0 +1,74 @@
+<>
+<Helmet>
+  <link rel="canonical" href="https://hritwij.com/blog/" />
+</Helmet>
+<div class="firstcontainer">
+  <div style={{ background: "#ffff", padding: "1px" }}>
+    <div class="container">
+      <section class="ps-blog--sidebar">
+        <div class="ps-section__left">
+          <div class="ps-section__items">
+            <div class="ps-blog--post-items">
+              <div class="ps-post-items">
+
+                {((this.state.blogs).length > 0) ?
+                  <div class="row">
+                    {(this.state.blogs).map((blog, index) => {
+                      return (
+                        <BlogCard key={index} blog={blog} webAddress={this.context.webAddress} />
+                      )
+                    })}
+
+                  </div>
+                  : null}
+                <div class="row mt-5">
+                  <div class="col text-center" style={{ marginBottom: "25px" }}>
+                    <div class="block-27">
+                      <ul>
+                        <Pagination getAllBlog={this.getAllBlog} totalBlogs={this.state.totalBlogs} currPage={this.state.currPage} />
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ps-section__right">
+          <div class="ps-sidebar ps-sidebar--home">
+            <aside class="ps-widget ps-widget--search">
+              <form method="get">
+                <div class="form-group"><input class="form-control" placeholder="Enter your keyword?" />
+                  <button aria-label="search-btn">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32">
+                      <path d="M31.008 27.231l-7.58-6.447c-0.784-0.705-1.622-1.029-2.299-0.998 1.789-2.096 2.87-4.815 2.87-7.787 0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12c2.972 0 5.691-1.081 7.787-2.87-0.031 0.677 0.293 1.515 0.998 2.299l6.447 7.58c1.104 1.226 2.907 1.33 4.007 0.23s0.997-2.903-0.23-4.007zM12 20c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8z"></path>
+                    </svg>
+                  </button>
+                </div>
+              </form>
+            </aside>
+
+            <SmallCard blogs={this.state.popular} />
+            <RecentPosts blogs={this.state.recent} />
+
+
+
+            <aside class="ps-widget ps-widget--follow-me">
+              <h4 class="ps-widget__heading"><span>Follow Me</span></h4>
+              <div class="ps-widget__content">
+                <a target="_blank" rel="noreferrer" href="https://www.facebook.com/hritwij.shrivastava/">Facebook</a>
+                <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/hritwij/">Linkedin</a>
+                <a target="_blank" rel="noreferrer" href="https://www.youtube.com/channel/UCXb45TeeuSM_OYDY-UN6WCQ">Youtube</a>
+                <a target="_blank" rel="noreferrer" href="https://www.instagram.com/hritwij_shrivastava/">Instagram</a>
+                <a target="_blank" rel="noreferrer" href="https://github.com/hritwij-shrivastava">Github</a>
+                <a target="_blank" rel="noreferrer" href="https://www.kaggle.com/hritwij">Kaggle</a>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+</div>
+</>

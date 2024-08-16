@@ -1,0 +1,127 @@
+<>
+<Helmet>
+    <link rel="canonical" href="https://hritwij.com/services/" />
+</Helmet>
+<div class="firstcontainer">
+    <LightBox ref={this.child} images={images} />
+    <div style={{ paddingTop: "35px", background: "-webkit-linear-gradient(0deg, #766dff 0%, #88f3ff 100%)" }}>
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-7 heading-section text-center" style={{ color: "#ffff" }}>
+                    <span class="subheading">Experience Feeds</span>
+                    <h2 style={{ color: "#fff" }}>Work Experience</h2>
+                </div>
+            </div>
+            <div class="row service-area-wrapper">
+                <div class="col-lg-4 col-md-6">
+                    <Link to="/services" class="single-service service-modal myrounded">
+                        <img src={s1} alt="" />
+                        <h6 class="title">Machine Learning</h6>
+                        <p>MIT certified data scientist. Projects include creating book recommendation system with more than 80% accuracy.</p>
+                    </Link>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <Link to="/services" class="single-service service-modal myrounded">
+                        <img src={s2} alt="" />
+                        <h6 class="title">Deep Learning / AI</h6>
+                        <p>Developed Sign language detection and speech conversion. Interpreted all 26 alphabet of English language and 5 other signals.</p>
+                    </Link>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <Link to="/services" class="single-service service-modal myrounded">
+                        <img src={s3} alt="" />
+                        <h6 class="title">Data Analytics</h6>
+                        <p>MIT certified statistician. Gathered and analyzed data and worked on the improvement of existing statistical models. </p>
+                    </Link>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <Link to="/services" class="single-service service-modal myrounded">
+                        <img src={s5} alt="" />
+                        <h6 class="title">Web Development</h6>
+                        <p>Developed efficient and maintainable software according to business objectives and needs of clients.</p>
+                    </Link>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <Link to="/services" class="single-service service-modal myrounded">
+                        <img src={s4} alt="" />
+                        <h6 class="title">Cyber Security</h6>
+                        <p>Collaborate with development teams to prioritize and remediate vulnerabilities throughout the software development lifecycle.</p>
+                    </Link>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <Link to="/services" class="single-service service-modal myrounded">
+                        <img src={s6} alt="" />
+                        <h6 class="title">Robotic Process Automation</h6>
+                        <p>UiPath Certified Advanced RPA Developer. Experience building RPA solutions using UiPath. Good knowledge of RE Framework.</p>
+                    </Link>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style={{ paddingTop: "0px", background: "white", maxHeight: "300px" }}>
+        <Card update={this.update} data={images} />
+    </div>
+
+    <div style={{ paddingTop: "35px", background: "#ffff" }}>
+        <section class="flat-contact-me">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-7">
+                        <div class="contact-me-content wow fadeInUp" style={{ visibility: "visible", animationName: "fadeInUp" }}>
+                            <h4 class="section-subtitle">Hire Me</h4>
+                            <h2 class="section-45px-montserrat margin-top-15 margin-bottom-45">Any Project in your
+                                mind</h2>
+                            <div class="button-contact-me wow fadeInDown" style={{ visibility: "visible", animationName: "fadeInDown" }}>
+                                <Link to="/contact" class="button-footer arrow-btn btn-st">Hire Me Now</Link>
+                                <a href={`${this.context.webAddress}${this.context.userdata.resume}`} target="_blank" rel="noreferrer" class="button-footer clound-down btn-st style-4">Download CV</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="contact-me-post wow fadeInRight" style={{ visibility: "visible", animationName: "fadeInRight" }}>
+                            <img src={hme} alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div style={{ paddingTop: "35px", background: "#F6F6F6" }}>
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-7 heading-section text-center">
+                    <span class="subheading">Blogs Feeds</span>
+                    <h2>Latest Blogs</h2>
+                </div>
+            </div>
+            {(Object.keys(this.context.userdata).length !== 0) ?
+                <div class="row">
+                    {Object.keys(this.context.userdata.blog).map((key, index) => {
+                        return (
+                            <div class="col-lg-4 col-sm-6" key={index}>
+                                <article class="single-blog">
+                                    <div class="blog-thumbnail">
+                                        <Link to={this.context.userdata.blog[key].url}>
+                                            <img src={`${this.context.webAddress}${this.context.userdata.blog[key].textAreaArray[0][1]}`} alt={this.context.userdata.blog[key].textAreaArray[0][2]} />
+                                        </Link>
+                                        <Link to={this.context.userdata.blog[key].url} class="catagory-name" >Blog</Link>
+                                        <div class="blog-date">
+                                            <h3>{moment(this.context.userdata.blog[key].date).format('DD')}</h3>
+                                            <span>{moment(this.context.userdata.blog[key].date).format('MMM')}</span>
+                                        </div>
+                                    </div>
+                                    <div class="blog-info">
+                                        <h4 class="author-name">By <Link to={this.context.userdata.blog[key].url}>Hritwij Shrivastava</Link></h4>
+                                        <h3 class="post-title"><Link to={this.context.userdata.blog[key].url}>{this.context.userdata.blog[key].blogTitle}</Link></h3>
+                                    </div>
+                                </article>
+                            </div>
+                        )
+                    })}
+                </div>
+                : null}
+        </div>
+    </div>
+</div>
+</>

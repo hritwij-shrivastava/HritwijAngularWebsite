@@ -1,0 +1,40 @@
+<>
+<Helmet>
+        <link rel="canonical" href="https://hritwij.com/portfolio/" />
+    </Helmet>
+<div class="firstcontainer">
+    <div style={{ background: "#ffff", padding: "1px" }}>
+        <section class="ftco-section ftco-project" style={{ background: "#ffff", marginTop: "70px", paddingTop: "50px" }}>
+            <div class="container">
+                {((this.state.blogs).length > 0) ?
+                    <div class="row">
+                        {(this.state.blogs).map((blog, index) => {
+                            return (
+                                <div class="col-md-4" key={index}>
+                                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style={{ backgroundImage: `url(${this.context.webAddress}${blog.textAreaArray[0][1]})`,backgroundSize: "contain" }}>
+                                        <div class="overlay"></div>
+                                        <div class="text text-center p-4">
+                                            <h3><Link to={blog.url}>{blog.blogTitle}</Link></h3>
+                                            <div class="orderingbtn" id="ordering"><Link to={blog.url} style={{ color: "white" }}>LEARN MORE</Link></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                    : null}
+                {/* ------------------ Pagination for future req  */}
+                <div class="row mt-5">
+                    <div class="col text-center" style={{ marginBottom: "25px" }}>
+                        <div class="block-27">
+                            <ul>
+                                <Pagination getAllBlog={this.getAllBlog} totalBlogs={this.state.totalBlogs} currPage={this.state.currPage} />
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+</>
