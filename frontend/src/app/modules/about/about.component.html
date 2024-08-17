@@ -1,19 +1,387 @@
-<>
-<Helmet>
-    <link rel="canonical" href="https://hritwij.com/about/" />
-</Helmet>
+<!-- Start Breadcrumb  ============================================= -->
+<div class="breadcrumb-area bg-fixed" style="background-image: url(assets/img/Main-Bg.png);">
+    <h2>About</h2>
+    <div class="breadcrumb-navtext">
+        <h5><span>Home </span><i class="fa fa-angle-right"></i><span> About</span></h5>
+    </div>
+</div>
+<!-- End Breadcrumb -->
 
 <div class="firstcontainer">
-    {/* <ModalVideo channel='youtube' autoplay isOpen={this.state.isOpen} videoId="WnfuIAJJ4G0" onClose={() => this.setState({ isOpen: false })} /> */}
-    <ModalVideo channel='custom' url="/intro.mp4" isOpen={this.state.isOpen} onClose={() => this.setState({ isOpen: false })} />
-    <AboutMe />
-    <AboutEduSection />
+    <!-- <ModalVideo channel='youtube' autoplay isOpen={this.state.isOpen} videoId="WnfuIAJJ4G0" onClose={() => this.setState({ isOpen: false })} /> --> 
+    <!-- <ModalVideo channel='custom' url="/intro.mp4" isOpen={this.state.isOpen} onClose={() => this.setState({ isOpen: false })} /> -->
+
+    <!-- AboutMe Section Start -->
+    <section class="about-me section" id="about-me">
+        <div class="container">
+            <div class="inner wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+                <div class="row">
+                    <div class="col-lg-6 col-12 aboutjpg">
+                        <div class="about-left">
+                            <a href="assets/img/me.png" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/img/me.png" alt="#" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="about-right">
+                            <h3 class="right-title">About Me <span>A small introducton of myself.</span></h3>
+                            <div class="about-tab">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item"><button class="nav-link" [class.active]="showAbout" data-toggle="tab" (click)="onAbout()" role="tab">About Me</button></li>
+                                    <li class="nav-item"><button class="nav-link" [class.active]="showSkill" data-toggle="tab" (click)="onSkill()" role="tab">My Skills</button></li>
+                                    <li class="nav-item"><button class="nav-link" [class.active]="showContact" data-toggle="tab" (click)="onContact()" role="tab">Contact Details</button></li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="t-tab1" role="tabpanel" *ngIf="showAbout">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="tab-about">
+                                                        <p>I'm an experienced software engineer. In my two years in this industry, I've sharpened my analytical thinking and collaboration skills.</p>
+                                                        <div class="about-me-info">
+                                                            <div class="row">
+                                                                <div class="col-lg-6 col-sm-6 col-xs-12">
+                                                                    <ul class="info-inner">
+                                                                        <li><span>Name: </span>Hritwij Shrivastava</li>
+                                                                        <li><span>Email: </span>{{'hritwij01shrivastava@gmail.com'}}</li>
+                                                                        <li><span>Address: </span> Kolkata, India</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="col-lg-6 col-sm-6 col-xs-12">
+                                                                    <ul class="info-inner">
+                                                                        <li><span>Age: </span>24</li>
+                                                                        <li><span>Phone: </span>+91 8051319411</li>
+                                                                        <li><span>Nationality: </span>Indian</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="button">
+                                                            <a href="{`${this.context.webAddress}${this.context.userdata.resume}`}" target="_blank" rel="noreferrer" class="btn">Download CV
+                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                                                                    <g data-name="Layer 2" fill="#ffffff" class="color000 svgShape">
+                                                                        <g data-name="download" fill="#ffffff" class="color000 svgShape">
+                                                                            <rect width="24" height="24" opacity="0" fill="#ffffff" class="color000 svgShape"></rect>
+                                                                            <rect width="16" height="2" x="4" y="18" rx="1" ry="1" fill="#ffffff" class="color000 svgShape"></rect>
+                                                                            <rect width="4" height="2" x="3" y="17" rx="1" ry="1" transform="rotate(-90 5 18)" fill="#ffffff" class="color000 svgShape"></rect>
+                                                                            <rect width="4" height="2" x="17" y="17" rx="1" ry="1" transform="rotate(-90 19 18)" fill="#ffffff" class="color000 svgShape"></rect>
+                                                                            <path d="M12 15a1 1 0 0 1-.58-.18l-4-2.82a1 1 0 0 1-.24-1.39 1 1 0 0 1 1.4-.24L12 12.76l3.4-2.56a1 1 0 0 1 1.2 1.6l-4 3a1 1 0 0 1-.6.2z" fill="#ffffff" class="color000 svgShape"></path>
+                                                                            <path d="M12 13a1 1 0 0 1-1-1V4a1 1 0 0 1 2 0v8a1 1 0 0 1-1 1z" fill="#ffffff" class="color000 svgShape"></path>
+                                                                        </g>
+                                                                    </g>
+                                                                </svg>
+
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade show active" id="t-tab2" role="tabpanel" *ngIf="showSkill">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="tab-skill">
+                                                        <div class="skill-main doctor-details-biography">
+                                                             <!-- Single Skill --> -->
+                                                            <div class="single-skill">
+                                                                <div class="skill-title">
+                                                                    <h4>Statistics</h4>
+                                                                </div>
+                                                                <div class="progress">
+                                                                    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
+                                                                        <span>70%</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- End Single Skill -->
+                                                            <!-- Single Skill -->
+                                                            <div class="single-skill">
+                                                                <div class="skill-title">
+                                                                    <h4>Machine Learning</h4>
+                                                                </div>
+                                                                <div class="progress">
+                                                                    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                                                                        <span>80%</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- End Single Skill -->
+                                                            <!-- Single Skill -->
+                                                            <div class="single-skill">
+                                                                <div class="skill-title">
+                                                                    <h4>Python</h4>
+                                                                </div>
+                                                                <div class="progress">
+                                                                    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
+                                                                        <span>90%</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- End Single Skill -->
+                                                            <!-- Single Skill -->
+                                                            <div class="single-skill">
+                                                                <div class="skill-title">
+                                                                    <h4>Web Development</h4>
+                                                                </div>
+                                                                <div class="progress">
+                                                                    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 85%;">
+                                                                        <span>85%</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- End Single Skill -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade show active" id="t-tab3" role="tabpanel" *ngIf="showContact">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="tab-contact">
+                                                        <div class="contact-address-wrapper">
+                                                            <div class="single-info">
+                                                                <div class="contact-address-icon">
+                                                                    <i class="fa fa-phone"></i>
+                                                                </div>
+                                                                <div class="contact-address-text">
+                                                                    <h3>Phone Number :</h3>
+                                                                    <span>WhatsApp / Call : +918051319411</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="single-info">
+                                                                <div class="contact-address-icon">
+                                                                    <i class="fa fa-envelope"></i>
+                                                                </div>
+                                                                <div class="contact-address-text">
+                                                                    <h3>Email Address :</h3>
+                                                                    <span>Main Email : <a to="mailto:hritwij01shrivastava@gmail.com">{{'hritwij01shrivastava@gmail.com'}}</a></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="single-info">
+                                                                <div class="contact-address-icon">
+                                                                    <i class="fa fa-link"></i>
+                                                                </div>
+                                                                <div class="contact-address-text">
+                                                                    <h3>Website Link :</h3>
+                                                                    <span>Website : <a to="/">hritwij.com</a></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!-- AboutMe Section End -->
+
+    <!-- AboutEduSection Section Start -->
+    <div class="port_education_setions prt_toppadder80 prt_bottompadder80 "> 
+        <div class="education_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="port_heading_wrapper text-center prt_bottompadder40">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <button class="nav-link active" id="home-tab" data-toggle="tab" (click)="onEdu()" role="tab" aria-controls="home" aria-selected="true">My Education</button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link" id="profile-tab" data-toggle="tab" (click)="onExp()" role="tab" aria-controls="profile" aria-selected="false">My Experiences</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                            <div class="education_main_wrapper" *ngIf="showEdu">
+                                <!-- first box -->
+                                <div class="education_box education_firsrtbox firstbox">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-4 col-sm-12 col-12 align-self-center">
+                                            <div class="education_mleft education_left ">
+                                                <div class="edu_mainyear edu_leftyear">
+                                                    <h1>2020</h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-8 col-sm-12 col-12 align-self-center">
+                                            <div class="education_mright education_right ">
+                                                <div class="education_minfo education_rinfo ">
+                                                    <div class="prt_rightside_title">
+                                                        <div class="left_title_box">
+                                                            <div class="left_title">
+                                                                <h4>01</h4>
+                                                            </div>
+                                                            <div class="right_title bg-pink">
+                                                                <!-- <h4>Techno India, Kolkata</h4> -->
+                                                                <h4>B.Tech </h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <h3 class="education_place"><span class="data_hover">B.Tech </span> In Electronics and Instrumentation</h3>
+                                                    <p>I graduated from Techno India with my Bachelor of Technology, in Electronics and Instrumentation in 2020 with a CGPA of 7.61. </p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- first box -->
+
+                                <!-- second box -->
+                                <div class="education_box education_secondbox secondbox">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-8 col-sm-12 col-12 align-self-center">
+                                            <div class="education_mright education_left ">
+                                                <div class="education_minfo education_rinfo ">
+                                                    <div class="prt_rightside_title" >
+                                                        <div class="left_title_box">
+                                                            <div class="right_title bg-yellow">
+                                                                <!-- <h4>College of Commerce, arts and science, Patna</h4> -->
+                                                                <h4>XII<sup>th</sup> PCM</h4>
+                                                            </div>
+                                                            <div class="left_title">
+                                                                <h4>02</h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <h3 class="education_place"><span class="data_hover">Intermediate </span> XII<sup>th</sup> PCM</h3>
+                                                    <p>I did my Intermediate from college of commerce, arts and science , major in Mathematics, Physics and Chemistry with an aggregate of 72.2%.</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-4 col-sm-12 col-12 align-self-center">
+                                            <div class="education_mleft education_right ">
+                                                <div class="edu_mainyear edu_leftyear">
+                                                    <h1>2015</h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- second box -->
+                                <!-- third box -->
+                                <div class="education_box education_firsrtbox firstbox">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-4 col-sm-12 col-12 align-self-center">
+                                            <div class="education_mleft education_left ">
+                                                <div class="edu_mainyear edu_leftyear">
+                                                    <h1>2013</h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-8 col-sm-12 col-12 align-self-center">
+                                            <div class="education_mright education_right ">
+                                                <div class="education_minfo education_rinfo ">
+                                                    <div class="prt_rightside_title">
+                                                        <div class="left_title_box">
+                                                            <div class="left_title">
+                                                                <h4>03</h4>
+                                                            </div>
+                                                            <div class="right_title bg-pink">
+                                                                <!-- <h4>Marwari High School, Patna City</h4> -->
+                                                                <h4>X<sup>th</sup></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <h3 class="education_place"><span class="data_hover">Matriculation </span> X<sup>th</sup></h3>
+                                                    <p>I completed my schooling from Marwari High School Patna City in 2013 with an aggregate of 80.4%.</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- third box -->
+                            </div>
+                            <div class="education_main_wrapper" *ngIf="showExp">
+                                <!-- First box -->
+                                <div class="education_box education_secondbox secondbox">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-8 col-sm-12 col-12 align-self-center">
+                                            <div class="education_mright education_left ">
+                                                <div class="education_minfo education_rinfo ">
+                                                    <div class="prt_rightside_title">
+                                                        <div class="left_title_box">
+                                                            <div class="right_title bg-yellow">
+                                                                <h4>Tata Consultancy Services</h4>
+                                                            </div>
+                                                            <div class="left_title">
+                                                                <h4>01</h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <h3 class="education_place"><span class="data_hover">Assistant System Engineer - Trainee </span></h3>
+                                                    <p>I started my career with TCS in 2021 as a cyber security engineer which includes collaborating with development teams to 
+                                                        remediate vulnerabilities throughout the software development lifecycle.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-4 col-sm-12 col-12 align-self-center">
+                                            <div class="education_mleft education_right ">
+                                                <div class="edu_mainyear edu_leftyear">
+                                                    <h1>2021</h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- First box -->
+                                <!-- Second box -->
+                                <div class="education_box education_firsrtbox firstbox">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-4 col-sm-12 col-12 align-self-center">
+                                            <div class="education_mleft education_left ">
+                                                <div class="edu_mainyear edu_leftyear">
+                                                    <h1>2020</h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-8 col-sm-12 col-12 align-self-center">
+                                            <div class="education_mright education_right ">
+                                                <div class="education_minfo education_rinfo ">
+                                                    <div class="prt_rightside_title">
+                                                        <div class="left_title_box">
+                                                            <div class="left_title">
+                                                                <h4>02</h4>
+                                                            </div>
+                                                            <div class="right_title bg-pink">
+                                                                <h4>Hillman Mills Pvt Ltd</h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <h3 class="education_place"><span class="data_hover">Full Stack Web Developer</span></h3>
+                                                    <p>I did 3 months internship from Hillman Pvt Ltd as a Django Developer. Here IdDeveloped efficient and maintainable website
+                                                        according to business objectives and needs of clients</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Second box -->
+
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- AboutEduSection Section Start -->
+    
     <section class="fun-facts-area text-lg-left">
         <div class="contaienr-fluid px-0">
             <div class="row align-items-center no-gutters">
                 <div class="col-xl-6">
                     <div class="video-area">
-                        <img src="/hrlaptop.jpg" alt="fun-facts-video-thumbnail" />
+                        <img src="assets/img/hrlaptop.jpg" alt="fun-facts-video-thumbnail">
                         <button  class="video-play-btn" onClick={this.onClick}>
                             <i class="fa fa-play"></i>
                         </button>
@@ -26,7 +394,7 @@
                             <h2 class="title text-white">Please have a look at small intro about myself</h2>
                         </div>
                         <div class="fun-fact-content margin-bottom-55">
-                            <blockquote class="blockquote" style={{padding: 0}}>
+                            <blockquote class="blockquote" style="padding: 0">
                                 <p class="mb-2">“The future belongs to those who learn more skills and combine them in creative ways.”</p>
                                 <div class="blockquote-footer mt-0">Robert Greene, Mastery</div>
                             </blockquote>
@@ -56,8 +424,56 @@
             </div>
         </div>
     </section>
-    <div class='smallColordsgn' style={{ width: "100%" }}>
-        <SmallSkill />
+    <!-- <div class='smallColordsgn' style="width: 100%"> -->
+        <!-- <SmallSkill /> -->
+    <!-- </div> -->
+
+    <!-- Start Case Studies Area
+        ============================================= -->
+<div class="case-studies-area default-padding-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <div class="site-heading text-center">
+            <h4>Progressing Together</h4>
+            <h2>Our Trusted Partners</h2>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="clients-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="main-page-carousel clients-carousel owl-theme">
+              <owl-carousel-o [options]="partnerOptions">
+                <ng-template carouselSlide>
+                  <a><img src="assets/img/logo/sonarqube.jpg" alt="Client"></a>
+                </ng-template>
+                <ng-template carouselSlide>
+                  <a><img src="assets/img/logo/google.jpg" alt="Client"></a>
+                </ng-template>
+                <ng-template carouselSlide>
+                  <a><img src="assets/img/logo/aws.jpg" alt="Client"></a>
+                </ng-template>
+                <ng-template carouselSlide>
+                  <a><img src="assets/img/logo/databricks.jpg" alt="Client"></a>
+                </ng-template>
+                <ng-template carouselSlide>
+                  <a><img src="assets/img/logo/microsoft.jpg" alt="Client"></a>
+                </ng-template>
+                <ng-template carouselSlide>
+                  <a><img src="assets/img/logo/uipath.jpg" alt="Client"></a>
+                </ng-template>
+                <ng-template carouselSlide>
+                  <a><img src="assets/img/logo/zoho.jpg" alt="Client"></a>
+                </ng-template>
+              </owl-carousel-o>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Case Studies Area -->
 </div>
-</>

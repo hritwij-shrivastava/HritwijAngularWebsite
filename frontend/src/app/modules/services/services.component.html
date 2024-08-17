@@ -1,127 +1,261 @@
-<>
-<Helmet>
-    <link rel="canonical" href="https://hritwij.com/services/" />
-</Helmet>
+<!-- Start Breadcrumb  ============================================= -->
+<div class="breadcrumb-area bg-fixed" style="background-image: url(assets/img/Main-Bg.png);">
+    <h2>Services</h2>
+    <div class="breadcrumb-navtext">
+        <h5><span>Home </span><i class="fa fa-angle-right"></i><span> Services</span></h5>
+    </div>
+</div>
+<!-- End Breadcrumb -->
+
 <div class="firstcontainer">
-    <LightBox ref={this.child} images={images} />
-    <div style={{ paddingTop: "35px", background: "-webkit-linear-gradient(0deg, #766dff 0%, #88f3ff 100%)" }}>
+    <!-- <LightBox ref={this.child} images={images} /> -->
+    <!-- <img [src]="_albums[0].thumb" (click)="open(0)" /> -->
+    <!-- <div *ngFor="let image of _albums; let i=index">
+        <img [src]="image.thumb" (click)="open(i)" />
+      </div> -->
+    <div style="padding-top: 35px; background: -webkit-linear-gradient(0deg, #766dff 0%, #88f3ff 100%);">
         <div class="container">
             <div class="row justify-content-center mb-5">
-                <div class="col-md-7 heading-section text-center" style={{ color: "#ffff" }}>
+                <div class="col-md-7 heading-section text-center" style="color: #ffff;">
                     <span class="subheading">Experience Feeds</span>
-                    <h2 style={{ color: "#fff" }}>Work Experience</h2>
+                    <h2 style="color: #fff;">Work Experience</h2>
                 </div>
             </div>
             <div class="row service-area-wrapper">
                 <div class="col-lg-4 col-md-6">
-                    <Link to="/services" class="single-service service-modal myrounded">
-                        <img src={s1} alt="" />
+                    <a to="/services" class="single-service service-modal myrounded">
+                        <img src="" alt="">
                         <h6 class="title">Machine Learning</h6>
                         <p>MIT certified data scientist. Projects include creating book recommendation system with more than 80% accuracy.</p>
-                    </Link>
+                    </a>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <Link to="/services" class="single-service service-modal myrounded">
-                        <img src={s2} alt="" />
+                    <a to="/services" class="single-service service-modal myrounded">
+                        <img src="" alt="">
                         <h6 class="title">Deep Learning / AI</h6>
                         <p>Developed Sign language detection and speech conversion. Interpreted all 26 alphabet of English language and 5 other signals.</p>
-                    </Link>
+                    </a>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <Link to="/services" class="single-service service-modal myrounded">
-                        <img src={s3} alt="" />
+                    <a to="/services" class="single-service service-modal myrounded">
+                        <img src="" alt="">
                         <h6 class="title">Data Analytics</h6>
                         <p>MIT certified statistician. Gathered and analyzed data and worked on the improvement of existing statistical models. </p>
-                    </Link>
+                    </a>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <Link to="/services" class="single-service service-modal myrounded">
-                        <img src={s5} alt="" />
+                    <a to="/services" class="single-service service-modal myrounded">
+                        <img src="" alt="">
                         <h6 class="title">Web Development</h6>
                         <p>Developed efficient and maintainable software according to business objectives and needs of clients.</p>
-                    </Link>
+                    </a>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <Link to="/services" class="single-service service-modal myrounded">
-                        <img src={s4} alt="" />
+                    <a to="/services" class="single-service service-modal myrounded">
+                        <img src="" alt="">
                         <h6 class="title">Cyber Security</h6>
                         <p>Collaborate with development teams to prioritize and remediate vulnerabilities throughout the software development lifecycle.</p>
-                    </Link>
+                    </a>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <Link to="/services" class="single-service service-modal myrounded">
-                        <img src={s6} alt="" />
+                    <a to="/services" class="single-service service-modal myrounded">
+                        <img src="" alt="">
                         <h6 class="title">Robotic Process Automation</h6>
                         <p>UiPath Certified Advanced RPA Developer. Experience building RPA solutions using UiPath. Good knowledge of RE Framework.</p>
-                    </Link>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <div style={{ paddingTop: "0px", background: "white", maxHeight: "300px" }}>
-        <Card update={this.update} data={images} />
-    </div>
+    <!-- <div style="padding-top: 0px; background: white; max-height: 300px;"> -->
+        <!-- <Card update={this.update} data={images} /> -->
+    <!-- </div> -->
 
-    <div style={{ paddingTop: "35px", background: "#ffff" }}>
+    <!-- Start Case Studies Area ============================================= -->
+    <div class="case-studies-area default-padding-top" style="margin: 0 10px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="site-heading text-center">
+                        <h4>Dashboard Screenshot</h4>
+                        <h2>Let’s See Awesome Software <br> UI Design Scrrenshot</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fill">
+            <div class="case-carousel">
+                <owl-carousel-o [options]="caseStudiesOptions">
+                    <ng-template carouselSlide>
+                        <div class="item">
+                            <div class="thumb">
+                                <a class="item popup-gallery" href="assets/img/800x600.png"><img src="assets/img/800x700.png" alt="Thumb"></a>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <div class="item">
+                            <div class="thumb">
+                                <a class="item popup-gallery" href="assets/img/800x600.png"><img src="assets/img/800x700.png" alt="Thumb"></a>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <div class="item">
+                            <div class="thumb">
+                                <a class="item popup-gallery" href="assets/img/800x600.png"><img src="assets/img/800x700.png" alt="Thumb"></a>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <div class="item">
+                            <div class="thumb">
+                                <a class="item popup-gallery" href="assets/img/800x600.png"><img src="assets/img/800x700.png" alt="Thumb"></a>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <div class="item">
+                            <div class="thumb">
+                                <a class="item popup-gallery" href="assets/img/800x600.png"><img src="assets/img/800x700.png" alt="Thumb"></a>
+                            </div>
+                        </div>
+                    </ng-template>
+                </owl-carousel-o>
+                <!-- <div class="owl-nav">
+                    <div class="owl-prev">
+                        <i class="fa fa-angle-left"></i>
+                    </div>
+                    <div class="owl-next disabled">
+                        <i class="fa fa-angle-right"></i>
+                    </div>
+                </div> -->
+                
+            </div>
+        </div>
+    </div>
+    <!-- End Case Studies Area -->
+
+    <div style="padding-top: 35px; background: #ffff;">
         <section class="flat-contact-me">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-7">
-                        <div class="contact-me-content wow fadeInUp" style={{ visibility: "visible", animationName: "fadeInUp" }}>
+                        <div class="contact-me-content wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                             <h4 class="section-subtitle">Hire Me</h4>
                             <h2 class="section-45px-montserrat margin-top-15 margin-bottom-45">Any Project in your
                                 mind</h2>
-                            <div class="button-contact-me wow fadeInDown" style={{ visibility: "visible", animationName: "fadeInDown" }}>
-                                <Link to="/contact" class="button-footer arrow-btn btn-st">Hire Me Now</Link>
-                                <a href={`${this.context.webAddress}${this.context.userdata.resume}`} target="_blank" rel="noreferrer" class="button-footer clound-down btn-st style-4">Download CV</a>
+                            <div class="button-contact-me wow fadeInDown" style="visibility: visible; animation-name: fadeInDown;">
+                                <a to="/contact" class="button-footer arrow-btn btn-st" style="color: white;">Hire Me Now</a>
+                                <a href="{`${this.context.webAddress}${this.context.userdata.resume}`}" target="_blank" rel="noreferrer" class="button-footer clound-down btn-st style-4">Download CV</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-5">
-                        <div class="contact-me-post wow fadeInRight" style={{ visibility: "visible", animationName: "fadeInRight" }}>
-                            <img src={hme} alt="" />
+                        <div class="contact-me-post wow fadeInRight" style="visibility: visible; animation-name: fadeInRight;">
+                            <img src="assets/img/boy-sitting-laptop.png" alt="">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </div>
-    <div style={{ paddingTop: "35px", background: "#F6F6F6" }}>
+
+    <!-- Start Blog ============================================= -->
+    <!-- Start Blog 
+    ============================================= -->
+    <div class="blog-area content-less default-padding bottom-less">
         <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-md-7 heading-section text-center">
-                    <span class="subheading">Blogs Feeds</span>
-                    <h2>Latest Blogs</h2>
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="site-heading text-center">
+                        <h4>Popular News</h4>
+                        <h2>Latest From our blog</h2>
+                    </div>
                 </div>
             </div>
-            {(Object.keys(this.context.userdata).length !== 0) ?
+        </div>
+        <div class="container">
+            <div class="blog-items">
                 <div class="row">
-                    {Object.keys(this.context.userdata.blog).map((key, index) => {
-                        return (
-                            <div class="col-lg-4 col-sm-6" key={index}>
-                                <article class="single-blog">
-                                    <div class="blog-thumbnail">
-                                        <Link to={this.context.userdata.blog[key].url}>
-                                            <img src={`${this.context.webAddress}${this.context.userdata.blog[key].textAreaArray[0][1]}`} alt={this.context.userdata.blog[key].textAreaArray[0][2]} />
-                                        </Link>
-                                        <Link to={this.context.userdata.blog[key].url} class="catagory-name" >Blog</Link>
-                                        <div class="blog-date">
-                                            <h3>{moment(this.context.userdata.blog[key].date).format('DD')}</h3>
-                                            <span>{moment(this.context.userdata.blog[key].date).format('MMM')}</span>
-                                        </div>
-                                    </div>
-                                    <div class="blog-info">
-                                        <h4 class="author-name">By <Link to={this.context.userdata.blog[key].url}>Hritwij Shrivastava</Link></h4>
-                                        <h3 class="post-title"><Link to={this.context.userdata.blog[key].url}>{this.context.userdata.blog[key].blogTitle}</Link></h3>
-                                    </div>
-                                </article>
+                    <!-- Single Item -->
+                    <div class="single-item col-lg-4 col-md-6">
+                        <div class="item">
+                            <div class="thumb">
+                                <a href="#">
+                                    <img src="assets/img/800x600.png" alt="Thumb">
+                                </a>
                             </div>
-                        )
-                    })}
+                            <div class="info">
+                                <div class="cats">
+                                    <a href="#">Technology</a>
+                                </div>
+                                <div class="meta">
+                                    <ul>
+                                        <li><i class="fas fa-calendar-alt"></i> 12 Aug, 2020</li>
+                                        <li><i class="fas fa-user"></i> By <a href="#">John Botha</a></li>
+                                    </ul>
+                                </div>
+                                <h4>
+                                    <a href="#">Additions in conveying or collected objection</a>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="single-item col-lg-4 col-md-6">
+                        <div class="item">
+                            <div class="thumb">
+                                <a href="#">
+                                    <img src="assets/img/800x600.png" alt="Thumb">
+                                </a>
+                            </div>
+                            <div class="info">
+                                <div class="cats">
+                                    <a href="#">Firewall</a>
+                                </div>
+                                <div class="meta">
+                                    <ul>
+                                        <li><i class="fas fa-calendar-alt"></i> 05 Oct, 2020</li>
+                                        <li><i class="fas fa-user"></i> By <a href="#">Jork Mon</a></li>
+                                    </ul>
+                                </div>
+                                <h4>
+                                    <a href="#">Discourse ye continued pronounce we abilities</a>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="single-item col-lg-4 col-md-6">
+                        <div class="item">
+                            <div class="thumb">
+                                <a href="#">
+                                    <img src="assets/img/800x600.png" alt="Thumb">
+                                </a>
+                            </div>
+                            <div class="info">
+                                <div class="cats">
+                                    <a href="#">Security</a>
+                                </div>
+                                <div class="meta">
+                                    <ul>
+                                        <li><i class="fas fa-calendar-alt"></i> 27 Dec, 2020</li>
+                                        <li><i class="fas fa-user"></i> By <a href="#">Spark Lee</a></li>
+                                    </ul>
+                                </div>
+                                <h4>
+                                    <a href="#">Children greatest online extended delicate of</a>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Item -->
                 </div>
-                : null}
+            </div>
         </div>
     </div>
-</div>
-</>
+    <!-- End Blog Area -->

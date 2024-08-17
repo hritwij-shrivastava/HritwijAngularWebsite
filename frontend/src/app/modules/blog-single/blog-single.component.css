@@ -1,0 +1,11 @@
+.post-tags a {
+    color: #000;
+}
+
+@media (max-width: 1200px) {
+    .tmp-width{
+        width: 49%;
+        padding-left: 15px;
+        padding-right: 15px; 
+    }
+}

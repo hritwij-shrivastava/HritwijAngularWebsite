@@ -19,4 +19,12 @@ npm i ngx-owl-carousel-o
 npm install bootstrap
 npm install jquery
 ng add @ng-bootstrap/ng-bootstrap
+npm install ngx-lightbox@2.0.0
 
+
+refs-
+https://flixta.rstheme.com/about/
+https://project.lystra.com.tr/jane/#
+https://infolook.net/tf_preview/kodal/demo-1.html
+https://www.npmjs.com/package/ngx-lightbox?activeTab=readme
+https://github.com/themyth92/ngx-lightbox/blob/master/demo/app.component.ts

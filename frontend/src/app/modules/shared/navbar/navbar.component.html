@@ -11,12 +11,12 @@
             </button>
             <div class={this.state.class} id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a end="active" onClick={this.onClick} to="/" class="nav-link" id="homeBtn">Home</a></li>
-                    <li class="nav-item"><a end="active" onClick={this.onClick} to="/about/" class="nav-link" id="aboutBtn">About</a></li>
-                    <li class="nav-item"><a end="active" onClick={this.onClick} to="/services/" class="nav-link" id="servicesBtn">Services</a></li>
-                    <li class="nav-item"><a end="active" onClick={this.onClick} to="/portfolio/" class="nav-link" id="portfolioBtn">Portfolio</a></li>
-                    <li class="nav-item"><a end="active" onClick={this.onClick} to="/blog/" class="nav-link" id="blogBtn">Blog</a></li>
-                    <li class="nav-item"><a end="active" onClick={this.onClick} to="/contact/" class="nav-link" id="contactBtn">Contact</a></li>
+                    <li class="nav-item"><a end="active" routerLink="/" routerLinkActive="active" class="nav-link" id="homeBtn">Home</a></li>
+                    <li class="nav-item"><a end="active" routerLink="/about" routerLinkActive="active" class="nav-link" id="aboutBtn">About</a></li>
+                    <li class="nav-item"><a end="active" routerLink="/services" routerLinkActive="active" class="nav-link" id="servicesBtn">Services</a></li>
+                    <li class="nav-item"><a end="active" routerLink="/portfolio" routerLinkActive="active" class="nav-link" id="portfolioBtn">Portfolio</a></li>
+                    <li class="nav-item"><a end="active" routerLink="/blog" routerLinkActive="active" class="nav-link" id="blogBtn">Blog</a></li>
+                    <li class="nav-item"><a end="active" routerLink="/contact" routerLinkActive="active" class="nav-link" id="contactBtn">Contact</a></li>
                 </ul>
             </div>
         </div>

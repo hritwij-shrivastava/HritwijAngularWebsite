@@ -1,74 +1,214 @@
-<>
-<Helmet>
-  <link rel="canonical" href="https://hritwij.com/blog/" />
-</Helmet>
-<div class="firstcontainer">
-  <div style={{ background: "#ffff", padding: "1px" }}>
-    <div class="container">
-      <section class="ps-blog--sidebar">
-        <div class="ps-section__left">
-          <div class="ps-section__items">
-            <div class="ps-blog--post-items">
-              <div class="ps-post-items">
-
-                {((this.state.blogs).length > 0) ?
-                  <div class="row">
-                    {(this.state.blogs).map((blog, index) => {
-                      return (
-                        <BlogCard key={index} blog={blog} webAddress={this.context.webAddress} />
-                      )
-                    })}
-
-                  </div>
-                  : null}
-                <div class="row mt-5">
-                  <div class="col text-center" style={{ marginBottom: "25px" }}>
-                    <div class="block-27">
-                      <ul>
-                        <Pagination getAllBlog={this.getAllBlog} totalBlogs={this.state.totalBlogs} currPage={this.state.currPage} />
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="ps-section__right">
-          <div class="ps-sidebar ps-sidebar--home">
-            <aside class="ps-widget ps-widget--search">
-              <form method="get">
-                <div class="form-group"><input class="form-control" placeholder="Enter your keyword?" />
-                  <button aria-label="search-btn">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32">
-                      <path d="M31.008 27.231l-7.58-6.447c-0.784-0.705-1.622-1.029-2.299-0.998 1.789-2.096 2.87-4.815 2.87-7.787 0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12c2.972 0 5.691-1.081 7.787-2.87-0.031 0.677 0.293 1.515 0.998 2.299l6.447 7.58c1.104 1.226 2.907 1.33 4.007 0.23s0.997-2.903-0.23-4.007zM12 20c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8z"></path>
-                    </svg>
-                  </button>
-                </div>
-              </form>
-            </aside>
-
-            <SmallCard blogs={this.state.popular} />
-            <RecentPosts blogs={this.state.recent} />
-
-
-
-            <aside class="ps-widget ps-widget--follow-me">
-              <h4 class="ps-widget__heading"><span>Follow Me</span></h4>
-              <div class="ps-widget__content">
-                <a target="_blank" rel="noreferrer" href="https://www.facebook.com/hritwij.shrivastava/">Facebook</a>
-                <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/hritwij/">Linkedin</a>
-                <a target="_blank" rel="noreferrer" href="https://www.youtube.com/channel/UCXb45TeeuSM_OYDY-UN6WCQ">Youtube</a>
-                <a target="_blank" rel="noreferrer" href="https://www.instagram.com/hritwij_shrivastava/">Instagram</a>
-                <a target="_blank" rel="noreferrer" href="https://github.com/hritwij-shrivastava">Github</a>
-                <a target="_blank" rel="noreferrer" href="https://www.kaggle.com/hritwij">Kaggle</a>
-              </div>
-            </aside>
-          </div>
-        </div>
-      </section>
-    </div>
+<!-- Start Breadcrumb  ============================================= -->
+<div class="breadcrumb-area bg-fixed" style="background-image: url(assets/img/Main-Bg.png);">
+  <h2>Blog</h2>
+  <div class="breadcrumb-navtext">
+      <h5><span>Home </span><i class="fa fa-angle-right"></i><span> Blog</span></h5>
   </div>
-
 </div>
-</>
+<!-- End Breadcrumb -->
+
+<div class="firstcontainer">
+  <!-- Start Blog ============================================= -->
+  <div class="blog-area full-blog blog-standard full-blog grid-colum default-padding">
+      <div class="container">
+          <div class="blog-items">
+              <div class="blog-content">
+                  <div class="blog-item-box">
+                      <div class="row">
+                          <!-- Single Item -->
+                          <div class="col-lg-4 col-md-6 single-item">
+                              <div class="item wow fadeInUp" data-wow-delay="500ms">
+                                  <div class="thumb">
+                                      <a href="#">
+                                          <img src="assets/img/800x600.png" alt="Thumb">
+                                      </a>
+                                  </div>
+                                  <div class="info">
+                                      <div class="cats">
+                                          <a href="#">Technology</a>
+                                      </div>
+                                      <div class="meta">
+                                          <ul>
+                                              <li><i class="fas fa-calendar-alt"></i> 05 Dec, 2020</li>
+                                              <li>By <a href="#">Park Lee</a></li>
+                                          </ul>
+                                      </div>
+                                      <h4>
+                                          <a href="#">Lasting out end article demands own charmed</a>
+                                      </h4>
+                                      <p>
+                                          Sitting mistake towards his few country ask. You delighted two rapturous six depending objection happiness.
+                                      </p>
+                                      <a class="btn circle btn-theme effect btn-md" href="#">Read More</a>
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- End Single Item -->
+                          <!-- Single Item -->
+                          <div class="col-lg-4 col-md-6 single-item">
+                              <div class="item wow fadeInUp" data-wow-delay="600ms">
+                                  <div class="thumb">
+                                      <a href="#">
+                                          <img src="assets/img/800x600.png" alt="Thumb">
+                                      </a>
+                                  </div>
+                                  <div class="info">
+                                      <div class="cats">
+                                          <a href="#">Security</a>
+                                      </div>
+                                      <div class="meta">
+                                          <ul>
+                                              <li><i class="fas fa-calendar-alt"></i> 26 Sep, 2020</li>
+                                              <li>By <a href="#">Park Lee</a></li>
+                                          </ul>
+                                      </div>
+                                      <h4>
+                                          <a href="#">Surprise steepest wandered amounted of.</a>
+                                      </h4>
+                                      <p>
+                                          Sitting mistake towards his few country ask. You delighted two rapturous six depending objection happiness.
+                                      </p>
+                                      <a class="btn circle btn-theme effect btn-md" href="#">Read More</a>
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- End Single Item -->
+                          <!-- Single Item -->
+                          <div class="col-lg-4 col-md-6 single-item">
+                              <div class="item wow fadeInUp" data-wow-delay="700ms">
+                                  <div class="thumb">
+                                      <a href="#">
+                                          <img src="assets/img/800x600.png" alt="Thumb">
+                                      </a>
+                                  </div>
+                                  <div class="info">
+                                      <div class="cats">
+                                          <a href="#">Firewall</a>
+                                      </div>
+                                      <div class="meta">
+                                          <ul>
+                                              <li><i class="fas fa-calendar-alt"></i> 18 Nov, 2020</li>
+                                              <li>By <a href="#">Park Lee</a></li>
+                                          </ul>
+                                      </div>
+                                      <h4>
+                                          <a href="#">Old insipidity motionless continuing law partiality.</a>
+                                      </h4>
+                                      <p>
+                                          Sitting mistake towards his few country ask. You delighted two rapturous six depending objection happiness.
+                                      </p>
+                                      <a class="btn circle btn-theme effect btn-md" href="#">Read More</a>
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- End Single Item -->
+                          <!-- Single Item -->
+                          <div class="col-lg-4 col-md-6 single-item">
+                              <div class="item wow fadeInUp" data-wow-delay="600ms">
+                                  <div class="thumb">
+                                      <a href="#">
+                                          <img src="assets/img/800x600.png" alt="Thumb">
+                                      </a>
+                                  </div>
+                                  <div class="info">
+                                      <div class="cats">
+                                          <a href="#">Security</a>
+                                      </div>
+                                      <div class="meta">
+                                          <ul>
+                                              <li><i class="fas fa-calendar-alt"></i> 30 Dec, 2020</li>
+                                              <li>By <a href="#">John</a></li>
+                                          </ul>
+                                      </div>
+                                      <h4>
+                                          <a href="#">Inquietude simplicity compliment remarkably</a>
+                                      </h4>
+                                      <p>
+                                          Sitting mistake towards his few country ask. You delighted two rapturous six depending objection happiness.
+                                      </p>
+                                      <a class="btn circle btn-theme effect btn-md" href="#">Read More</a>
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- End Single Item -->
+                          <!-- Single Item -->
+                          <div class="col-lg-4 col-md-6 single-item">
+                              <div class="item wow fadeInUp" data-wow-delay="700ms">
+                                  <div class="thumb">
+                                      <a href="#">
+                                          <img src="assets/img/800x600.png" alt="Thumb">
+                                      </a>
+                                  </div>
+                                  <div class="info">
+                                      <div class="cats">
+                                          <a href="#">Firewall</a>
+                                      </div>
+                                      <div class="meta">
+                                          <ul>
+                                              <li><i class="fas fa-calendar-alt"></i> 18 Nov, 2020</li>
+                                              <li>By <a href="#">Park Lee</a></li>
+                                          </ul>
+                                      </div>
+                                      <h4>
+                                          <a href="#">Old insipidity motionless continuing law partiality.</a>
+                                      </h4>
+                                      <p>
+                                          Sitting mistake towards his few country ask. You delighted two rapturous six depending objection happiness.
+                                      </p>
+                                      <a class="btn circle btn-theme effect btn-md" href="#">Read More</a>
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- End Single Item -->
+                          <!-- Single Item -->
+                          <div class="col-lg-4 col-md-6 single-item">
+                              <div class="item wow fadeInUp" data-wow-delay="800ms">
+                                  <div class="thumb">
+                                      <a href="#">
+                                          <img src="assets/img/800x600.png" alt="Thumb">
+                                      </a>
+                                  </div>
+                                  <div class="info">
+                                      <div class="cats">
+                                          <a href="#">Security</a>
+                                      </div>
+                                      <div class="meta">
+                                          <ul>
+                                              <li><i class="fas fa-calendar-alt"></i> 30 Dec, 2020</li>
+                                              <li>By <a href="#">John</a></li>
+                                          </ul>
+                                      </div>
+                                      <h4>
+                                          <a href="#">Simplicity terminated compliment remarkably</a>
+                                      </h4>
+                                      <p>
+                                          Sitting mistake towards his few country ask. You delighted two rapturous six depending objection happiness.
+                                      </p>
+                                      <a class="btn circle btn-theme effect btn-md" href="#">Read More</a>
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- End Single Item -->
+                      </div>
+                      
+                      <!-- Pagination -->
+                      <div class="row">
+                          <div class="col-md-12 pagi-area text-center">
+                              <nav aria-label="navigation">
+                                  <ul class="pagination">
+                                      <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-double-left"></i></a></li>
+                                      <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                      <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-double-right"></i></a></li>
+                                  </ul>
+                              </nav>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- End Blog -->
+</div>

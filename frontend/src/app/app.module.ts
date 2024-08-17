@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { LightboxModule } from 'ngx-lightbox';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -9,9 +12,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { NavbarComponent } from './modules/shared/navbar/navbar.component';
 import { FooterComponent } from './modules/shared/footer/footer.component';
 import { HomeComponent } from './modules/home/home.component';
+import { AboutComponent } from './modules/about/about.component';
+import { ServicesComponent } from './modules/services/services.component';
 
-// import { AboutComponent } from './modules/about/about.component';
-// import { ServicesComponent } from './modules/services/services.component';
 // import { PortfolioComponent } from './modules/portfolio/portfolio.component';
 // import { BlogComponent } from './modules/blog/blog.component';
 // import { ContactComponent } from './modules/contact/contact.component';
@@ -24,8 +27,8 @@ import { HomeComponent } from './modules/home/home.component';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    // AboutComponent,
-    // ServicesComponent,
+    AboutComponent,
+    ServicesComponent,
     // PortfolioComponent,
     // BlogComponent,
     // ContactComponent,
@@ -35,7 +38,9 @@ import { HomeComponent } from './modules/home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    LightboxModule,
+    CarouselModule
   ],
   providers: [
     provideClientHydration(),

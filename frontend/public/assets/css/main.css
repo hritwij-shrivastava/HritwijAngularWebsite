@@ -403,7 +403,7 @@ img {
     font-size: 1.6em;
 }
 }
-.owl-div-prev{
+/* .owl-div-prev{
     left: 30px;
 }
 .owl-div-next{
@@ -436,7 +436,7 @@ img {
     background-color: #4c84ff;
     border: 2px solid #252C48;
     transition: background-color 200ms ease-in;
-}
+} */
 
 /* -------------------------------------- Tiny End ------------------------------------------ */
 
@@ -1482,18 +1482,18 @@ a:active {
     text-rendering: optimizeLegibility;
 }
 
-.owl-wrapper-outer{
+/* .owl-wrapper-outer{
     width: calc(100% - 2px);
     padding: 10px 0;
     overflow: hidden;
     position: relative;
     z-index: 2;
     text-align: center;
-}
+} */
 
-.owl-wrapper{
+/* .owl-wrapper{
     position: relative;
-}
+} */
 .clients-content {
     margin: 7px;
 }
@@ -1514,15 +1514,15 @@ a:active {
     --tw-shadow: 0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);
     box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow); */
 }
-.owl-item {
+/* .owl-item {
     width: 175px;
-    float: left;
+    float: left; */
     /* -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     -ms-backface-visibility: hidden;
     -webkit-transform: translate3d(0, 0, 0); */
-}
-.owl-nav {
+/* } */
+/* .owl-nav {
     text-align: center;
     margin: 0;
     position: absolute !important;
@@ -1585,7 +1585,7 @@ a:active {
     background-color: #d5c455;
     border: 2px solid #d5c455;
     color: #fff;
-}
+} */
 .showInMobile{
     display: none;
 }
@@ -7802,8 +7802,9 @@ form.user .btn-user {
     border-color: #0a58ca;
 }
 .sidebar {
-    width: 6.5rem;
-    min-height: 100vh;
+    /* width: 6.5rem; */
+    /* min-height: 100vh; */
+    width: 100%;
 }
 
 .bg-gradient-primary {
@@ -8080,7 +8081,9 @@ sup {
     }
 
     .sidebar {
-        width: 14rem !important;
+        /* width: 14rem !important; */
+        
+      width: 100%;
     }
 
     .sidebar .sidebar-brand .sidebar-brand-icon i {
@@ -8359,7 +8362,9 @@ blockquote {
 }
 .firstcontainer{
     position: relative;
-    background: #F6F6F6;
+    /* background: #F6F6F6; */
+    /* background: #f2f4ff; */
+    background: #fff;
     overflow: hidden;
 }
 .secondcontainer{
