@@ -21,6 +21,9 @@ npm install jquery
 ng add @ng-bootstrap/ng-bootstrap
 npm install ngx-lightbox@2.0.0
 
+npm install sweetalert2 @sweetalert2/ngx-sweetalert2
+npm install ngx-masonry masonry-layout --save
+
 
 refs-
 https://flixta.rstheme.com/about/
