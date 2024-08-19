@@ -37,6 +37,7 @@
   font-size: 40px;
   margin-top: -10px;
   margin-bottom: 0;
+  text-align: center;
 }
 
 .breadcrumb > li + li::before {
@@ -183,6 +184,7 @@
 .breadcrumb-navtext span {
   font-size: 15px;
   font-weight: normal;
+  text-align: center;
 }
 
 /* ============================================================== 

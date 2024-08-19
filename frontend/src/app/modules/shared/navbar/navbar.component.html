@@ -1,17 +1,18 @@
 <header class="navFix">
     <nav class="navbar navbar-expand-lg">
-        
         <div class="container">
-            <a href="assets/img/hritwij.png" target="_blank" rel="noreferrer" class="logo navbar-brand">
-                <img src="assets/img/hritwij.png" class="img-fluid footer-logo" width="135px" height="45px" alt="hritwij"/>
-            </a>
-            <button onClick={this.onClick} class="navbar-toggler" id="navbarBtn" style="color: black" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded={this.state.clicked} aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class={this.state.class} id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a end="active" routerLink="/" routerLinkActive="active" class="nav-link" id="homeBtn">Home</a></li>
+            <div class="navbar-header">
+                <a routerLink="/home" class="logo navbar-brand">
+                    <img src="assets/img/hritwij.png" class="img-fluid footer-logo" width="135px" height="45px" alt="hritwij"/>
+                </a>
+                <button type="button" class="navbar-toggle" id="navbarBtn" data-target="#navbarNav" [attr.aria-expanded]="expandNavBtn" aria-label="Toggle navigation" (click)="expandNav()">
+                    <i class="fa fa-bars" *ngIf="!expandNavBtn"></i>
+                    <i class="fa fa-times" *ngIf="expandNavBtn"></i>
+                </button>
+            </div>
+            <div id="navbar-menu" class="collapse navbar-collapse" [class.show]="expandNavBtn"  id="navbarNav">
+                <ul class="navbar-nav navbar-center ml-auto">
+                    <li class="nav-item"><a end="active" routerLink="/home" [class.active]="isHome" routerLinkActive="active" class="nav-link" id="homeBtn">Home</a></li>
                     <li class="nav-item"><a end="active" routerLink="/about" routerLinkActive="active" class="nav-link" id="aboutBtn">About</a></li>
                     <li class="nav-item"><a end="active" routerLink="/services" routerLinkActive="active" class="nav-link" id="servicesBtn">Services</a></li>
                     <li class="nav-item"><a end="active" routerLink="/portfolio" routerLinkActive="active" class="nav-link" id="portfolioBtn">Portfolio</a></li>
@@ -19,6 +20,6 @@
                     <li class="nav-item"><a end="active" routerLink="/contact" routerLinkActive="active" class="nav-link" id="contactBtn">Contact</a></li>
                 </ul>
             </div>
-        </div>
+            </div>
     </nav>
 </header>

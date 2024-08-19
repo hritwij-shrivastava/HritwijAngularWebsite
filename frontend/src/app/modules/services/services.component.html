@@ -13,7 +13,7 @@
     <!-- <div *ngFor="let image of _albums; let i=index">
         <img [src]="image.thumb" (click)="open(i)" />
       </div> -->
-    <div style="padding-top: 35px; background: -webkit-linear-gradient(0deg, #766dff 0%, #88f3ff 100%);">
+    <div style="padding-top: 80px; background: -webkit-linear-gradient(0deg, #766dff 0%, #88f3ff 100%);">
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-md-7 heading-section text-center" style="color: #ffff;">
@@ -24,42 +24,42 @@
             <div class="row service-area-wrapper">
                 <div class="col-lg-4 col-md-6">
                     <a to="/services" class="single-service service-modal myrounded">
-                        <img src="" alt="">
+                        <img src="assets/img/s1.png" alt="">
                         <h6 class="title">Machine Learning</h6>
                         <p>MIT certified data scientist. Projects include creating book recommendation system with more than 80% accuracy.</p>
                     </a>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <a to="/services" class="single-service service-modal myrounded">
-                        <img src="" alt="">
+                        <img src="assets/img/s2.png" alt="">
                         <h6 class="title">Deep Learning / AI</h6>
                         <p>Developed Sign language detection and speech conversion. Interpreted all 26 alphabet of English language and 5 other signals.</p>
                     </a>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <a to="/services" class="single-service service-modal myrounded">
-                        <img src="" alt="">
+                        <img src="assets/img/s3.png" alt="">
                         <h6 class="title">Data Analytics</h6>
                         <p>MIT certified statistician. Gathered and analyzed data and worked on the improvement of existing statistical models. </p>
                     </a>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <a to="/services" class="single-service service-modal myrounded">
-                        <img src="" alt="">
+                        <img src="assets/img/s4.png" alt="">
                         <h6 class="title">Web Development</h6>
                         <p>Developed efficient and maintainable software according to business objectives and needs of clients.</p>
                     </a>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <a to="/services" class="single-service service-modal myrounded">
-                        <img src="" alt="">
+                        <img src="assets/img/s5.png" alt="">
                         <h6 class="title">Cyber Security</h6>
                         <p>Collaborate with development teams to prioritize and remediate vulnerabilities throughout the software development lifecycle.</p>
                     </a>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <a to="/services" class="single-service service-modal myrounded">
-                        <img src="" alt="">
+                        <img src="assets/img/s6.png" alt="">
                         <h6 class="title">Robotic Process Automation</h6>
                         <p>UiPath Certified Advanced RPA Developer. Experience building RPA solutions using UiPath. Good knowledge of RE Framework.</p>
                     </a>
@@ -88,37 +88,37 @@
             <div class="case-carousel">
                 <owl-carousel-o [options]="caseStudiesOptions">
                     <ng-template carouselSlide>
-                        <div class="item">
+                        <div class="item" (click)="open(0)">
                             <div class="thumb">
-                                <a class="item popup-gallery" href="assets/img/800x600.png"><img src="assets/img/800x700.png" alt="Thumb"></a>
+                                <a class="item popup-gallery"><img src="assets/img/800x700.png" alt="Thumb"></a>
                             </div>
                         </div>
                     </ng-template>
                     <ng-template carouselSlide>
-                        <div class="item">
+                        <div class="item" (click)="open(0)">
                             <div class="thumb">
-                                <a class="item popup-gallery" href="assets/img/800x600.png"><img src="assets/img/800x700.png" alt="Thumb"></a>
+                                <a class="item popup-gallery"><img src="assets/img/800x700.png" alt="Thumb"></a>
                             </div>
                         </div>
                     </ng-template>
                     <ng-template carouselSlide>
-                        <div class="item">
+                        <div class="item" (click)="open(0)">
                             <div class="thumb">
-                                <a class="item popup-gallery" href="assets/img/800x600.png"><img src="assets/img/800x700.png" alt="Thumb"></a>
+                                <a class="item popup-gallery"><img src="assets/img/800x700.png" alt="Thumb"></a>
                             </div>
                         </div>
                     </ng-template>
                     <ng-template carouselSlide>
-                        <div class="item">
+                        <div class="item" (click)="open(0)">
                             <div class="thumb">
-                                <a class="item popup-gallery" href="assets/img/800x600.png"><img src="assets/img/800x700.png" alt="Thumb"></a>
+                                <a class="item popup-gallery"><img src="assets/img/800x700.png" alt="Thumb"></a>
                             </div>
                         </div>
                     </ng-template>
                     <ng-template carouselSlide>
-                        <div class="item">
+                        <div class="item" (click)="open(0)">
                             <div class="thumb">
-                                <a class="item popup-gallery" href="assets/img/800x600.png"><img src="assets/img/800x700.png" alt="Thumb"></a>
+                                <a class="item popup-gallery"><img src="assets/img/800x700.png" alt="Thumb"></a>
                             </div>
                         </div>
                     </ng-template>

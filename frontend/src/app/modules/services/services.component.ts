@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { Lightbox } from 'ngx-lightbox';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
@@ -23,7 +23,7 @@ const myAlbum = ["/public/static/asset/cert/img1656753781152.jpg",
   styleUrl: './services.component.css',
   encapsulation: ViewEncapsulation.None, // This makes styles global
 })
-export class ServicesComponent {
+export class ServicesComponent implements OnInit {
   _albums: any = [];
   recent_posts: any = [{"0":"abc"}];
   section: string = "explore";
@@ -98,10 +98,13 @@ export class ServicesComponent {
   }
   
   constructor(private _lightbox: Lightbox) {
+  }
+
+  ngOnInit(): void {
     for (let i = 1; i <= 4; i++) {
-      const src = 'assets/img/hrlaptop.jpg';
+      const src = 'assets/img/800x700.png';
       const caption = 'Image ' + i + ' caption here';
-      const thumb = 'assets/img/hrlaptop.jpg';
+      const thumb = 'assets/img/800x700.png';
       const album = {
          src: src,
          caption: caption,
@@ -110,9 +113,12 @@ export class ServicesComponent {
 
       this._albums.push(album);
     }
+    
   }
 
   open(index: number): void {
+    console.log("working")
+    console.log(this._albums[index])
     // open lightbox
     this._lightbox.open(this._albums, index);
   }

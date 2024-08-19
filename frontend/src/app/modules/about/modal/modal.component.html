@@ -1,0 +1,24 @@
+<div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': isOpen, 'd-block': isOpen}">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">YouTube Video</h5>
+          <button type="button" class="close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" #youtubePlayer>
+          <youtube-player *ngIf="isOpen" [width]="videoWidth" [height]="videoHeight" [videoId]="videoId" disablePlaceholder></youtube-player>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop" *ngIf="isOpen"></div>
+
+<!-- <h1 mat-dialog-title>YouTube Video</h1>
+<div mat-dialog-content>
+  <youtube-player *ngIf="isBrowser" [videoId]="data.videoId"></youtube-player>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onClose()">Close</button>
+</div> -->

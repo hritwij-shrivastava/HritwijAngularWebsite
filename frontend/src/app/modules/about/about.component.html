@@ -11,6 +11,8 @@
     <!-- <ModalVideo channel='youtube' autoplay isOpen={this.state.isOpen} videoId="WnfuIAJJ4G0" onClose={() => this.setState({ isOpen: false })} /> --> 
     <!-- <ModalVideo channel='custom' url="/intro.mp4" isOpen={this.state.isOpen} onClose={() => this.setState({ isOpen: false })} /> -->
 
+    <!-- <youtube-player videoId="mVjYG9TSN88"/> -->
+
     <!-- AboutMe Section Start -->
     <section class="about-me section" id="about-me">
         <div class="container">
@@ -82,7 +84,7 @@
                                                 <div class="col-12">
                                                     <div class="tab-skill">
                                                         <div class="skill-main doctor-details-biography">
-                                                             <!-- Single Skill --> -->
+                                                            <!-- Single Skill --> 
                                                             <div class="single-skill">
                                                                 <div class="skill-title">
                                                                     <h4>Statistics</h4>
@@ -382,7 +384,7 @@
                 <div class="col-xl-6">
                     <div class="video-area">
                         <img src="assets/img/hrlaptop.jpg" alt="fun-facts-video-thumbnail">
-                        <button  class="video-play-btn" onClick={this.onClick}>
+                        <button  class="video-play-btn" (click)="playVideo('mVjYG9TSN88')"> 
                             <i class="fa fa-play"></i>
                         </button>
                     </div>
@@ -477,3 +479,4 @@
   </div>
   <!-- End Case Studies Area -->
 </div>
+<app-modal #modal></app-modal>

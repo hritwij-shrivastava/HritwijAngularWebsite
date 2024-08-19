@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { ModalComponent } from './modal/modal.component';
 
 @Component({
   selector: 'app-about',
@@ -7,6 +8,9 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrl: './about.component.css'
 })
 export class AboutComponent implements OnInit {
+
+  @ViewChild('modal') modal!: ModalComponent;
+
   showAbout: Boolean = false;
   showSkill: Boolean = false;
   showContact: Boolean = false;
@@ -84,4 +88,9 @@ export class AboutComponent implements OnInit {
     this.showEdu = false;
     this.showExp = false;
   }
+
+  playVideo(videoId: string) {
+    this.modal.openModal(videoId);
+  }
+
 }

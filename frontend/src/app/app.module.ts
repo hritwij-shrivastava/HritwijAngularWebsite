@@ -23,6 +23,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NgxMasonryModule } from 'ngx-masonry';
+import { YouTubePlayer } from '@angular/youtube-player';
+
+import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { NavbarComponent } from './modules/shared/navbar/navbar.component';
 import { FooterComponent } from './modules/shared/footer/footer.component';
@@ -33,10 +37,8 @@ import { PortfolioComponent } from './modules/portfolio/portfolio.component';
 import { BlogComponent } from './modules/blog/blog.component';
 import { ContactComponent } from './modules/contact/contact.component';
 import { BlogSingleComponent } from './modules/blog-single/blog-single.component';
-
-
-
-// import { BottomNavbarComponent } from './modules/shared/bottom-navbar/bottom-navbar.component';
+import { BottomNavbarComponent } from './modules/shared/bottom-navbar/bottom-navbar.component';
+import { ModalComponent } from './modules/about/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -50,8 +52,9 @@ import { BlogSingleComponent } from './modules/blog-single/blog-single.component
     PortfolioComponent,
     BlogComponent,
     ContactComponent,
-    BlogSingleComponent
-    // BottomNavbarComponent,
+    BlogSingleComponent,
+    BottomNavbarComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -72,13 +75,19 @@ import { BlogSingleComponent } from './modules/blog-single/blog-single.component
     MatAutocompleteModule,
     MatProgressSpinnerModule,
     SweetAlert2Module,
-    NgxMasonryModule
+    NgxMasonryModule,
+    YouTubePlayer,
+    MatDialogModule,
+    MatDialogActions, 
+    MatDialogClose, 
+    MatDialogContent, 
+    MatDialogTitle
   ],
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
     provideHttpClient(withFetch(), withInterceptorsFromDi())
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, AboutComponent]
 })
 export class AppModule { }

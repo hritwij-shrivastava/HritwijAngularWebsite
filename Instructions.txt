@@ -25,6 +25,15 @@ npm install sweetalert2 @sweetalert2/ngx-sweetalert2
 npm install ngx-masonry masonry-layout --save
 
 
+===============Not working======================
+npm install @videogular/ngx-videogular --save   #https://videogular.github.io/ngx-videogular/docs/getting-started/how-videogular-works.html
+npm install @types/core-js --save-dev
+npm install ngx-youtube-player
+================================================
+
+ng add @angular/youtube-player
+npm install @sanity/asset-utils
+
 refs-
 https://flixta.rstheme.com/about/
 https://project.lystra.com.tr/jane/#
