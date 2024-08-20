@@ -9,5 +9,8 @@ import about from './about'
 import education from './education'
 import experience from './experience'
 import expertise from './expertise'
+import services from './services'
+import certificate from './certificate'
 
-export const schemaTypes = [about, education, experience, expertise, author, category, tags, blockContent, social, portfolio, blog]
+
+export const schemaTypes = [about, education, experience, expertise, services, certificate, author, category, tags, blockContent, social, portfolio, blog]

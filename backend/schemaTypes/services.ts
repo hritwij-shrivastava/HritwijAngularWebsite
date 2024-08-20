@@ -6,6 +6,11 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'slno',
+      title: 'Serial No.',
+      type: 'string'
+    }),
+    defineField({
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
@@ -29,7 +34,7 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      media: 'desc',
+      media: 'mainImage',
     }
   },
 })

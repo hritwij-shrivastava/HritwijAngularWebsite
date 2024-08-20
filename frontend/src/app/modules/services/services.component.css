@@ -422,8 +422,8 @@
   transform-origin: top left;
 }
 .arrow-btn::after {
-  content: "\e92b";
-  font-family: 'icomoon';
+  content: "\f061";
+  font-family: 'Font Awesome 5 Pro';
   font-size: 10px;
   margin-left: 7px;
 }
@@ -440,8 +440,8 @@
   transform-origin: top left;
 }
 .clound-down::after {
-  content: "\e900";
-  font-family: 'icomoon';
+  content: "\f019";
+  font-family: 'Font Awesome 5 Pro';
   margin-left: 15px;
 }
 .style-4 {
@@ -450,8 +450,8 @@
   border: solid 1px #4c84ff;
 }
 .clound-down::after {
-  content: "\e900";
-  font-family: 'icomoon';
+  content: "\f019";
+  font-family: 'Font Awesome 5 Pro';
   margin-left: 15px;
 }
 .flat-contact-me .contact-me-content .btn-st:hover {

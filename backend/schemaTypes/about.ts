@@ -15,6 +15,15 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'backgroundImage',
+      title: 'Background image',
+      type: 'image',
+      description: 'Please upload an image with dimensions 1500 x 700 px.',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
       name: 'name',
       title: 'Name',
       type: 'string',
@@ -55,6 +64,15 @@ export default defineType({
       type: 'string'
     }),
     defineField({
+      name: 'videoThumb',
+      title: 'Video Thumb',
+      type: 'image',
+      description: 'Please upload an image with dimensions 1500 x 700 px.',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
       name: 'nationality',
       title: 'Nationality',
       type: 'string',
@@ -89,6 +107,18 @@ export default defineType({
     defineField({
       name: 'aboutme',
       title: 'About me Description',
+      type: 'string',
+      validation: Rule => Rule.max(250).warning(`A short description shouldn't be more than 250 characters.`)
+    }),
+    defineField({
+      name: 'projects',
+      title: 'No. of Projects',
+      type: 'string',
+      validation: Rule => Rule.max(250).warning(`A short description shouldn't be more than 250 characters.`)
+    }),
+    defineField({
+      name: 'clients',
+      title: 'No. of Clients',
       type: 'string',
       validation: Rule => Rule.max(250).warning(`A short description shouldn't be more than 250 characters.`)
     }),

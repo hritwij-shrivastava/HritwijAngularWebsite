@@ -1,6 +1,8 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { Lightbox } from 'ngx-lightbox';
+import { LightboxConfig } from 'ngx-lightbox';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { SanityService } from '../../service/sanity.service';
 
 const myAlbum = ["/public/static/asset/cert/img1656753781152.jpg",
             "/public/static/asset/cert/img1656828250156.jpg",
@@ -25,8 +27,12 @@ const myAlbum = ["/public/static/asset/cert/img1656753781152.jpg",
 })
 export class ServicesComponent implements OnInit {
   _albums: any = [];
-  recent_posts: any = [{"0":"abc"}];
-  section: string = "explore";
+  recent_posts!: any;
+  currentDate: string = '';
+  section: string = "blog";
+  services: any = [];
+  certificates: any = [];
+  resumeUrl!: string;
 
   caseStudiesOptions: OwlOptions = {
     loop: true,
@@ -69,7 +75,7 @@ export class ServicesComponent implements OnInit {
     pullDrag: true,
     dots: true,
     navSpeed: 700,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 50,
     navText: ['', ''],
     autoWidth: true,
@@ -97,23 +103,103 @@ export class ServicesComponent implements OnInit {
     nav: true
   }
   
-  constructor(private _lightbox: Lightbox) {
+  constructor(private _lightboxConfig: LightboxConfig, private _lightbox: Lightbox, private sanityService: SanityService) {
+    _lightboxConfig.fitImageInViewPort = true;
+    _lightboxConfig.wrapAround = true;
+    _lightboxConfig.showZoom = true;
   }
 
   ngOnInit(): void {
-    for (let i = 1; i <= 4; i++) {
-      const src = 'assets/img/800x700.png';
-      const caption = 'Image ' + i + ' caption here';
-      const thumb = 'assets/img/800x700.png';
+    this.getServices();
+    this.getCertificates();
+    this.getResume();
+    this.currentDate = this.getCurrentDate();
+    this.getRecentPosts();
+  }
+
+  async getServices() {
+    this.services = await this.sanityService.getServices();
+
+    for(let i=0; i<this.services.length; i++){
+      this.services[i].mainImageUrl = this.getImageUrl(this.services[i].mainImage.asset)
+    }
+
+    this.services = this.services.sort((a:any, b:any) => parseInt(a.slno) - parseInt(b.slno));
+  }
+
+  async getCertificates() {
+    this.certificates = await this.sanityService.getCertificates();
+
+    for(let i=0; i<this.certificates.length; i++){
+      this.certificates[i].bannerImageUrl = this.getImageUrl(this.certificates[i].bannerImage.asset)
+    }
+
+    this.createLightBoxArray()
+  }
+
+  async getResume() {
+    let data = await this.sanityService.getResume();
+    let asset = {
+      assetId: data[0].resume.asset._ref.split("-")[1],
+      extension: 'pdf',
+      vanityFilename: ''
+    }
+
+    this.resumeUrl = this.getFileUrl(asset);
+  }
+
+  private getCurrentDate(): string {
+    const now = new Date();
+    return now.toISOString();
+  }
+
+  private getImageUrl(source: any) {
+    return this.sanityService.urlForImage(source)
+  }
+
+  private getFileUrl(source: any) {
+    return this.sanityService.urlForFile(source)
+  }
+
+  private createLightBoxArray(){
+    for (let i=0; i<this.certificates.length; i++) {
+      const src = this.certificates[i].bannerImageUrl;
+      const caption = this.certificates[i].title;
+      const thumb = this.certificates[i].bannerImageUrl;
       const album = {
          src: src,
          caption: caption,
          thumb: thumb
       };
-
       this._albums.push(album);
     }
-    
+  }
+
+  convertString2Date(value: string) {
+    return new Date(value);
+  }
+
+  async getAuthorDetails(authorId: string) {
+    let author_name = await this.sanityService.getAuthorDetails(authorId)
+    return author_name[0].name
+  }
+
+  async getCategoryDetails(categoryId: string) {
+    let category_name = await this.sanityService.getCategoryDetails(categoryId)
+    return category_name[0].title
+  }
+
+  async getRecentPosts() {
+    this.recent_posts = await this.sanityService.getRecentPosts(this.section, this.currentDate, 0, 3)
+
+    for(let i=0; i<this.recent_posts.length; i++){
+      this.recent_posts[i].thumbImageUrl = this.getImageUrl(this.recent_posts[i].mainImage.asset);
+      this.recent_posts[i].publishedTime = this.convertString2Date(this.recent_posts[i].publishedAt);
+      this.recent_posts[i].author_name = await this.getAuthorDetails(this.recent_posts[i].author._ref);
+      this.recent_posts[i].category_name = await this.getCategoryDetails(this.recent_posts[i].category._ref);
+    }
+
+    // console.log( this.recent_posts)
   }
 
   open(index: number): void {

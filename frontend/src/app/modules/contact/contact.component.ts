@@ -5,6 +5,7 @@ import { map, startWith } from 'rxjs/operators';
 import {AsyncPipe} from '@angular/common';
 import { GoogleService } from '../../service/google.service';
 import { JsonDataService } from '../../service/json-data.service';
+import { SanityService } from '../../service/sanity.service';
 import Swal, { SweetAlertOptions }  from 'sweetalert2';
 
 export interface Country {
@@ -32,6 +33,7 @@ export class ContactComponent implements OnInit {
   filteredOptions!: Observable<CountryData>;
   countryCode: CountryData = { countries: [] };
   isSpinner: Boolean = false;
+  about_details: any = [];
   alertMessage: SweetAlertOptions = {
     icon: 'warning',
     title: 'Oops!',
@@ -39,7 +41,7 @@ export class ContactComponent implements OnInit {
     confirmButtonText: 'OK'
   };  
   
-  constructor(private googleService: GoogleService, private jsonDataService: JsonDataService) { }
+  constructor(private sanityService: SanityService, private googleService: GoogleService, private jsonDataService: JsonDataService) { }
 
   ngOnInit(): void {
     this.filteredOptions = this.myControl.valueChanges.pipe(
@@ -47,6 +49,12 @@ export class ContactComponent implements OnInit {
       map(value => this._filter(value || '')),
     );
     this.getCountryCode();
+    this.getAbout();
+  }
+
+  async getAbout() {
+    let data = await this.sanityService.getAbout();
+    this.about_details = data[0]
   }
 
   onButtonClick(event: Event, name:string, email:string, code:string, phone:string, comments:string) {

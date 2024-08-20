@@ -16,157 +16,49 @@
                 <ngx-masonry [ordered]="true">
                     <div id="portfolio-grid" class="case-items colums-2">
                         <!-- Single Item -->
-                        <div ngxMasonryItem class="masonry-item pf-item">
+                        <div ngxMasonryItem class="masonry-item pf-item" *ngFor="let blogs of blogsList">
                             <div class="item">
                                 <div class="thumb">
-                                    <img src="assets/img/800x800.png" alt="Thumb">
+                                    <img src={{blogs.thumbImageUrl}} alt="Thumb">
                                 </div>
                                 <div class="info">
                                     <div class="info-items">
                                         <div class="left-info">
                                             <h4>
-                                                <a href="#">Cyber Security</a>
+                                                <a [routerLink]="['/', section, blogs.category_name, blogs.slug.current]">{{blogs.title}}</a>
                                             </h4>
                                             <ul>
                                                 <li>Technology</li>
                                             </ul>
                                         </div>
                                         <div class="right-info">
-                                            <a class="item popup-gallery" href="assets/img/800x600.png"><i class="fas fa-plus"></i></a>
+                                            <a class="item popup-gallery" [routerLink]="['/', section, blogs.category_name, blogs.slug.current]"><i class="fas fa-plus"></i></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- End Single Item -->
-
-                        <!-- Single Item -->
-                        <div ngxMasonryItem class="masonry-item pf-item">
-                            <div class="item">
-                                <div class="thumb">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
-                                </div>
-                                <div class="info">
-                                    <div class="info-items">
-                                        <div class="left-info">
-                                            <h4>
-                                                <a href="#">IT Counsultancy</a>
-                                            </h4>
-                                            <ul>
-                                                <li>Technology</li>
-                                            </ul>
-                                        </div>
-                                        <div class="right-info">
-                                            <a class="item popup-gallery" href="assets/img/800x600.png"><i class="fas fa-plus"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-
-                        <!-- Single Item -->
-                        <div ngxMasonryItem class="masonry-item pf-item">
-                            <div class="item">
-                                <div class="thumb">
-                                    <img src="assets/img/800x800.png" alt="Thumb">
-                                </div>
-                                <div class="info">
-                                    <div class="info-items">
-                                        <div class="left-info">
-                                            <h4>
-                                                <a href="#">Analysis of Security</a>
-                                            </h4>
-                                            <ul>
-                                                <li>Technology</li>
-                                            </ul>
-                                        </div>
-                                        <div class="right-info">
-                                            <a class="item popup-gallery" href="assets/img/800x600.png"><i class="fas fa-plus"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-
-                        <!-- Single Item -->
-                        <div ngxMasonryItem class="masonry-item pf-item">
-                            <div class="item">
-                                <div class="thumb">
-                                    <img src="assets/img/800x800.png" alt="Thumb">
-                                </div>
-                                <div class="info">
-                                    <div class="info-items">
-                                        <div class="left-info">
-                                            <h4>
-                                                <a href="#">Cyber Security</a>
-                                            </h4>
-                                            <ul>
-                                                <li>Technology</li>
-                                            </ul>
-                                        </div>
-                                        <div class="right-info">
-                                            <a class="item popup-gallery" href="assets/img/800x600.png"><i class="fas fa-plus"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-
-                        <!-- Single Item -->
-                        <div ngxMasonryItem class="masonry-item pf-item">
-                            <div class="item">
-                                <div class="thumb">
-                                    <img src="assets/img/800x800.png" alt="Thumb">
-                                </div>
-                                <div class="info">
-                                    <div class="info-items">
-                                        <div class="left-info">
-                                            <h4>
-                                                <a href="#">IT Counsultancy</a>
-                                            </h4>
-                                            <ul>
-                                                <li>Technology</li>
-                                            </ul>
-                                        </div>
-                                        <div class="right-info">
-                                            <a class="item popup-gallery" href="assets/img/800x600.png"><i class="fas fa-plus"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-
-                        <!-- Single Item -->
-                        <div ngxMasonryItem class="masonry-item pf-item">
-                            <div class="item">
-                                <div class="thumb">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
-                                </div>
-                                <div class="info">
-                                    <div class="info-items">
-                                        <div class="left-info">
-                                            <h4>
-                                                <a href="#">Analysis of Security</a>
-                                            </h4>
-                                            <ul>
-                                                <li>Technology</li>
-                                            </ul>
-                                        </div>
-                                        <div class="right-info">
-                                            <a class="item popup-gallery" href="assets/img/800x600.png"><i class="fas fa-plus"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Item -->
-
                     </div>
                 </ngx-masonry>
+                <!-- Pagination -->
+                <div class="row">
+                    <div class="col-md-12 pagi-area text-center">
+                        <nav aria-label="navigation">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" (click)="updateStartEnd(currentPageNo-1)"><i class="fas fa-angle-double-left"></i></a>
+                                </li>
+                                <li class="page-item" [class.active]="i+1==currentPageNo" *ngFor="let item of [].constructor(pageRange); let i = index">
+                                    <a class="page-link" (click)="updateStartEnd(i+1)">{{i+1}}</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" (click)="updateStartEnd(currentPageNo+1)"><i class="fas fa-angle-double-right"></i></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

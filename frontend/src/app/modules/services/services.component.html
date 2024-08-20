@@ -8,11 +8,7 @@
 <!-- End Breadcrumb -->
 
 <div class="firstcontainer">
-    <!-- <LightBox ref={this.child} images={images} /> -->
-    <!-- <img [src]="_albums[0].thumb" (click)="open(0)" /> -->
-    <!-- <div *ngFor="let image of _albums; let i=index">
-        <img [src]="image.thumb" (click)="open(i)" />
-      </div> -->
+    <!-- Start Experience Feeds  ============================================= -->
     <div style="padding-top: 80px; background: -webkit-linear-gradient(0deg, #766dff 0%, #88f3ff 100%);">
         <div class="container">
             <div class="row justify-content-center mb-5">
@@ -22,57 +18,20 @@
                 </div>
             </div>
             <div class="row service-area-wrapper">
-                <div class="col-lg-4 col-md-6">
-                    <a to="/services" class="single-service service-modal myrounded">
-                        <img src="assets/img/s1.png" alt="">
-                        <h6 class="title">Machine Learning</h6>
-                        <p>MIT certified data scientist. Projects include creating book recommendation system with more than 80% accuracy.</p>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <a to="/services" class="single-service service-modal myrounded">
-                        <img src="assets/img/s2.png" alt="">
-                        <h6 class="title">Deep Learning / AI</h6>
-                        <p>Developed Sign language detection and speech conversion. Interpreted all 26 alphabet of English language and 5 other signals.</p>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <a to="/services" class="single-service service-modal myrounded">
-                        <img src="assets/img/s3.png" alt="">
-                        <h6 class="title">Data Analytics</h6>
-                        <p>MIT certified statistician. Gathered and analyzed data and worked on the improvement of existing statistical models. </p>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <a to="/services" class="single-service service-modal myrounded">
-                        <img src="assets/img/s4.png" alt="">
-                        <h6 class="title">Web Development</h6>
-                        <p>Developed efficient and maintainable software according to business objectives and needs of clients.</p>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <a to="/services" class="single-service service-modal myrounded">
-                        <img src="assets/img/s5.png" alt="">
-                        <h6 class="title">Cyber Security</h6>
-                        <p>Collaborate with development teams to prioritize and remediate vulnerabilities throughout the software development lifecycle.</p>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <a to="/services" class="single-service service-modal myrounded">
-                        <img src="assets/img/s6.png" alt="">
-                        <h6 class="title">Robotic Process Automation</h6>
-                        <p>UiPath Certified Advanced RPA Developer. Experience building RPA solutions using UiPath. Good knowledge of RE Framework.</p>
+                <div class="col-lg-4 col-md-6" *ngFor="let secrvice of services">
+                    <a href={{secrvice.mainImageUrl}} class="single-service service-modal myrounded">
+                        <img src={{secrvice.mainImageUrl}} alt={{secrvice.title}}>
+                        <h6 class="title">{{secrvice.title}}</h6>
+                        <p>{{secrvice.desc}}</p>
                     </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- <div style="padding-top: 0px; background: white; max-height: 300px;"> -->
-        <!-- <Card update={this.update} data={images} /> -->
-    <!-- </div> -->
+    <!-- End Experience Feeds -->
 
-    <!-- Start Case Studies Area ============================================= -->
+    <!-- Start Certificate Area ============================================= -->
     <div class="case-studies-area default-padding-top" style="margin: 0 10px;">
         <div class="container">
             <div class="row">
@@ -87,56 +46,21 @@
         <div class="container-fill">
             <div class="case-carousel">
                 <owl-carousel-o [options]="caseStudiesOptions">
-                    <ng-template carouselSlide>
-                        <div class="item" (click)="open(0)">
+                    <ng-template carouselSlide *ngFor="let album of _albums; let i=index">
+                        <div class="item" (click)="open(i)">
                             <div class="thumb">
-                                <a class="item popup-gallery"><img src="assets/img/800x700.png" alt="Thumb"></a>
-                            </div>
-                        </div>
-                    </ng-template>
-                    <ng-template carouselSlide>
-                        <div class="item" (click)="open(0)">
-                            <div class="thumb">
-                                <a class="item popup-gallery"><img src="assets/img/800x700.png" alt="Thumb"></a>
-                            </div>
-                        </div>
-                    </ng-template>
-                    <ng-template carouselSlide>
-                        <div class="item" (click)="open(0)">
-                            <div class="thumb">
-                                <a class="item popup-gallery"><img src="assets/img/800x700.png" alt="Thumb"></a>
-                            </div>
-                        </div>
-                    </ng-template>
-                    <ng-template carouselSlide>
-                        <div class="item" (click)="open(0)">
-                            <div class="thumb">
-                                <a class="item popup-gallery"><img src="assets/img/800x700.png" alt="Thumb"></a>
-                            </div>
-                        </div>
-                    </ng-template>
-                    <ng-template carouselSlide>
-                        <div class="item" (click)="open(0)">
-                            <div class="thumb">
-                                <a class="item popup-gallery"><img src="assets/img/800x700.png" alt="Thumb"></a>
+                                <a class="item popup-gallery"><img src={{album.src}} alt={{album.caption}}></a>
                             </div>
                         </div>
                     </ng-template>
                 </owl-carousel-o>
-                <!-- <div class="owl-nav">
-                    <div class="owl-prev">
-                        <i class="fa fa-angle-left"></i>
-                    </div>
-                    <div class="owl-next disabled">
-                        <i class="fa fa-angle-right"></i>
-                    </div>
-                </div> -->
                 
             </div>
         </div>
     </div>
-    <!-- End Case Studies Area -->
+    <!-- End Certificate Area -->
 
+    <!-- Start Hire Me Area ============================================= -->
     <div style="padding-top: 35px; background: #ffff;">
         <section class="flat-contact-me">
             <div class="container">
@@ -148,7 +72,7 @@
                                 mind</h2>
                             <div class="button-contact-me wow fadeInDown" style="visibility: visible; animation-name: fadeInDown;">
                                 <a to="/contact" class="button-footer arrow-btn btn-st" style="color: white;">Hire Me Now</a>
-                                <a href="{`${this.context.webAddress}${this.context.userdata.resume}`}" target="_blank" rel="noreferrer" class="button-footer clound-down btn-st style-4">Download CV</a>
+                                <a href={{resumeUrl}} target="_blank" rel="noreferrer" class="button-footer clound-down btn-st style-4">Download CV</a>
                             </div>
                         </div>
                     </div>
@@ -161,10 +85,9 @@
             </div>
         </section>
     </div>
+    <!-- End Hire Me Area -->
 
     <!-- Start Blog ============================================= -->
-    <!-- Start Blog 
-    ============================================= -->
     <div class="blog-area content-less default-padding bottom-less">
         <div class="container">
             <div class="row">
@@ -176,86 +99,47 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="blog-items">
+        <div class="container owl-theme carousel-shadow custom-owl-container">
+            <div class="container">
                 <div class="row">
-                    <!-- Single Item -->
-                    <div class="single-item col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="#">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
-                                </a>
-                            </div>
-                            <div class="info">
-                                <div class="cats">
-                                    <a href="#">Technology</a>
-                                </div>
-                                <div class="meta">
-                                    <ul>
-                                        <li><i class="fas fa-calendar-alt"></i> 12 Aug, 2020</li>
-                                        <li><i class="fas fa-user"></i> By <a href="#">John Botha</a></li>
-                                    </ul>
-                                </div>
-                                <h4>
-                                    <a href="#">Additions in conveying or collected objection</a>
-                                </h4>
-                            </div>
+                    <div class="col-lg-12">
+                        <div class="blog-items">
+                            <owl-carousel-o [options]="blogOptions">
+                                <ng-template carouselSlide *ngFor="let recent_post of recent_posts">
+                                    <!-- Single Item -->
+                                    <div class="single-item custom-owl-item">
+                                        <div class="item">
+                                            <div class="thumb">
+                                                <a [routerLink]="['/', section, recent_post.category_name, recent_post.slug.current]">
+                                                    <img src={{recent_post.thumbImageUrl}} alt="Thumb" />
+                                                </a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="cats">
+                                                    <a [routerLink]="['/', section, recent_post.category_name, recent_post.slug.current]">{{recent_post.category_name}}</a>
+                                                </div>
+                                                <div class="meta">
+                                                    <ul>
+                                                        <li><i class="fas fa-calendar-alt"></i>{{ recent_post.publishedTime | date: "dd MMM, yyyy"}}</li>
+                                                        <li>
+                                                            <i class="fas fa-user"></i> By <a [routerLink]="['/', section, recent_post.category_name, recent_post.slug.current]">{{recent_post.author_name}}</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <h4>
+                                                    <a [routerLink]="['/', section, recent_post.category_name, recent_post.slug.current]">{{recent_post.title}}</a>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Item -->
+                                </ng-template>
+                            </owl-carousel-o>
                         </div>
                     </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="single-item col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="#">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
-                                </a>
-                            </div>
-                            <div class="info">
-                                <div class="cats">
-                                    <a href="#">Firewall</a>
-                                </div>
-                                <div class="meta">
-                                    <ul>
-                                        <li><i class="fas fa-calendar-alt"></i> 05 Oct, 2020</li>
-                                        <li><i class="fas fa-user"></i> By <a href="#">Jork Mon</a></li>
-                                    </ul>
-                                </div>
-                                <h4>
-                                    <a href="#">Discourse ye continued pronounce we abilities</a>
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                    <!-- Single Item -->
-                    <div class="single-item col-lg-4 col-md-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="#">
-                                    <img src="assets/img/800x600.png" alt="Thumb">
-                                </a>
-                            </div>
-                            <div class="info">
-                                <div class="cats">
-                                    <a href="#">Security</a>
-                                </div>
-                                <div class="meta">
-                                    <ul>
-                                        <li><i class="fas fa-calendar-alt"></i> 27 Dec, 2020</li>
-                                        <li><i class="fas fa-user"></i> By <a href="#">Spark Lee</a></li>
-                                    </ul>
-                                </div>
-                                <h4>
-                                    <a href="#">Children greatest online extended delicate of</a>
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Item -->
-                </div>
+                </div> 
             </div>
         </div>
     </div>
+</div>
     <!-- End Blog Area -->

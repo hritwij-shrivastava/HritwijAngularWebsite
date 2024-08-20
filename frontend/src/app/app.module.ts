@@ -71,7 +71,6 @@ import { ModalComponent } from './modules/about/modal/modal.component';
     MatIconModule,
     MatInputModule,
     MatSelectModule,
-    MatInputModule,
     MatAutocompleteModule,
     MatProgressSpinnerModule,
     SweetAlert2Module,
@@ -88,6 +87,6 @@ import { ModalComponent } from './modules/about/modal/modal.component';
     provideAnimationsAsync(),
     provideHttpClient(withFetch(), withInterceptorsFromDi())
   ],
-  bootstrap: [AppComponent, AboutComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,136 +8,134 @@
 <!-- End Breadcrumb -->
 
 <div class="firstcontainer">
-<!-- Start Contact 
-============================================= -->
-<div class="contact-area overflow-hidden default-padding">
-    <div class="container">
-        <div class="row">
+    <!-- Start Contact ============================================= -->
+    <div class="contact-area overflow-hidden default-padding">
+        <div class="container">
+            <div class="row">
 
-            <div class="col-lg-6 contact-form-box">
-                <div class="content">
-                    <div class="heading">
-                        <h2>Get in Touch</h2>
-                        <p>Connect with the industry's leading IT services provider for reliable support.</p>
-                    </div>
-                    <form class="contact-form">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input class="form-control" id="name" name="name" #name placeholder="Name" type="text">
-                                    <span class="alert-error"></span>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input class="form-control" id="email" name="email" #email="ngModel" placeholder="Email" type="email" ngModel pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$">
-                                    <div *ngIf="email.errors">
-                                        <span class="alert-error"*ngIf="email?.errors && email.touched">Invalid email format.</span>
+                <div class="col-lg-6 contact-form-box">
+                    <div class="content">
+                        <div class="heading">
+                            <h2>Get in Touch</h2>
+                            <p>Connect with the industry's leading IT services provider for reliable support.</p>
+                        </div>
+                        <form class="contact-form">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input class="form-control" id="name" name="name" #name placeholder="Name" type="text">
+                                        <span class="alert-error"></span>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <input class="form-control" id="code" name="code" #code type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-                                    <mat-autocomplete #auto="matAutocomplete">
-                                        <mat-option *ngFor="let country of (filteredOptions | async)?.countries" [value]="country.code">
-                                            {{ country.name }} ({{ country.code }})
-                                        </mat-option>
-                                    </mat-autocomplete>
-                                    <span class="alert-error"></span>
-                                </div>
-                            </div>
-                            <div class="col-lg-8">
-                                <div class="form-group">
-                                    <input class="form-control" id="phone" name="phone" #phone="ngModel" placeholder="Phone" type="text" pattern="[0-9 ]{10}" ngModel>
-                                    <div *ngIf="phone.errors">
-                                        <span class="alert-error" *ngIf="phone?.errors && phone.touched">Invalid Mobile Number.</span>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input class="form-control" id="email" name="email" #email="ngModel" placeholder="Email" type="email" ngModel pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$">
+                                        <div *ngIf="email.errors">
+                                            <span class="alert-error"*ngIf="email?.errors && email.touched">Invalid email format.</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-group comments">
-                                    <textarea class="form-control" id="comments" name="comments" #comments
-                                        placeholder="Please describe what you need."></textarea>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <input class="form-control" id="code" name="code" #code type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                                        <mat-autocomplete #auto="matAutocomplete">
+                                            <mat-option *ngFor="let country of (filteredOptions | async)?.countries" [value]="country.code">
+                                                {{ country.name }} ({{ country.code }})
+                                            </mat-option>
+                                        </mat-autocomplete>
+                                        <span class="alert-error"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="form-group">
+                                        <input class="form-control" id="phone" name="phone" #phone="ngModel" placeholder="Phone" type="text" pattern="[0-9 ]{10}" ngModel>
+                                        <div *ngIf="phone.errors">
+                                            <span class="alert-error" *ngIf="phone?.errors && phone.touched">Invalid Mobile Number.</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <button
-                                    [disabled]="(phone?.errors || email?.errors)"
-                                    (click)="onButtonClick($event, name.value, email.value, code.value, phone.value, comments.value)"
-                                    name="submit" id="submit">
-                                    Get a free consultation
-                                </button>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group comments">
+                                        <textarea class="form-control" id="comments" name="comments" #comments
+                                            placeholder="Please describe what you need."></textarea>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <!-- Alert Message -->
-                        <div class="col-md-12 alert-notification">
-                            <div id="message" class="alert-msg"></div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="col-lg-6 info">
-                <div class="contact-tabs">
-                    <ul id="tabs" class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a href="" data-target="#tab1" data-toggle="tab" class="active nav-link">
-                                Address
-                            </a>
-                        </li>
-                    </ul>
-                    <div id="tabsContent" class="tab-content">
-                        <div id="tab1" class="tab-pane fade active show">
-                            <ul>
-                                <li>
-                                    <div class="icon">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </div>
-                                    <div class="info">
-                                        <p>
-                                            Our Location
-                                            <span>Flat No. B405, Block-B, Mahendra Abasan, <br> Naipukur,
-                                                WB-700135</span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <i class="fas fa-envelope-open"></i>
-                                    </div>
-                                    <div class="info">
-                                        <p>
-                                            Send Us Mail
-                                            <span>{{ 'support@cetosoft.com' }}</span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <i class="fas fa-phone"></i>
-                                    </div>
-                                    <div class="info">
-                                        <p>
-                                            Call Us
-                                            <span>+91 8407041264</span>
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <button
+                                        [disabled]="(phone?.errors || email?.errors)"
+                                        (click)="onButtonClick($event, name.value, email.value, code.value, phone.value, comments.value)"
+                                        name="submit" id="submit">
+                                        Get a free consultation
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Alert Message -->
+                            <div class="col-md-12 alert-notification">
+                                <div id="message" class="alert-msg"></div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </div>
 
+                <div class="col-lg-6 info">
+                    <div class="contact-tabs">
+                        <ul id="tabs" class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a href="" data-target="#tab1" data-toggle="tab" class="active nav-link">
+                                    Address
+                                </a>
+                            </li>
+                        </ul>
+                        <div id="tabsContent" class="tab-content">
+                            <div id="tab1" class="tab-pane fade active show">
+                                <ul>
+                                    <li>
+                                        <div class="icon">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </div>
+                                        <div class="info">
+                                            <p>
+                                                Our Location
+                                                <span>{{about_details.address}}</span>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon">
+                                            <i class="fas fa-envelope-open"></i>
+                                        </div>
+                                        <div class="info">
+                                            <p>
+                                                Send Us Mail
+                                                <span>{{about_details.email}}</span>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon">
+                                            <i class="fas fa-phone"></i>
+                                        </div>
+                                        <div class="info">
+                                            <p>
+                                                Call Me
+                                                <span>{{about_details.phone}}</span>
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
-</div>
-<!-- End Contact Area -->
+    <!-- End Contact Area -->
 </div>

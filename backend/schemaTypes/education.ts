@@ -13,7 +13,7 @@ export default defineType({
     defineField({
       name: 'courseTitle',
       title: 'Course Title',
-      type: 'string'
+      type: 'blockContent',
     }),
     defineField({
       name: 'yop',
@@ -34,7 +34,7 @@ export default defineType({
 
   preview: {
     select: {
-      title: 'courseTitle',
+      title: 'courseName',
       date: 'yop'
     },
     prepare(selection) {
