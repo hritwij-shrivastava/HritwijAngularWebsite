@@ -20,6 +20,11 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'faIcon',
+      title: 'Fa Icon Code',
+      type: 'string'
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string'

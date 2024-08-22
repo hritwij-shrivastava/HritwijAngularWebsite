@@ -7,6 +7,8 @@ import { PortfolioComponent } from './modules/portfolio/portfolio.component';
 import { BlogComponent } from './modules/blog/blog.component';
 import { ContactComponent } from './modules/contact/contact.component';
 import { BlogSingleComponent } from './modules/blog-single/blog-single.component';
+import { ErrorPageComponent } from './modules/error-page/error-page.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,16 +18,14 @@ const routes: Routes = [
   { path: 'portfolio', component: PortfolioComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'blog-single', component: BlogSingleComponent }
-
-  // { path: ':section/:category/:slug', component: BlogDetailComponent },
-  // { path: 'test/:category/:slug', component: BlogPlainComponent },
-  // { path: '**', component: ErrorPageComponent }
+  { path: ':section/:category/:slug', component: BlogSingleComponent },
+  { path: '**', component: ErrorPageComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    scrollPositionRestoration: 'enabled'
+    scrollPositionRestoration: 'enabled',
+    anchorScrolling: 'enabled',
   })],
   exports: [RouterModule]
 })

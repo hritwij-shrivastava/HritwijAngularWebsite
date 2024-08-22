@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http'; // Import provideHttpClient and withFetch
 
@@ -38,7 +39,8 @@ import { BlogComponent } from './modules/blog/blog.component';
 import { ContactComponent } from './modules/contact/contact.component';
 import { BlogSingleComponent } from './modules/blog-single/blog-single.component';
 import { BottomNavbarComponent } from './modules/shared/bottom-navbar/bottom-navbar.component';
-import { ModalComponent } from './modules/about/modal/modal.component';
+import { ErrorPageComponent } from './modules/error-page/error-page.component';
+import { VideoModalComponent } from './modules/services/video-modal/video-modal.component';
 
 @NgModule({
   declarations: [
@@ -54,10 +56,12 @@ import { ModalComponent } from './modules/about/modal/modal.component';
     ContactComponent,
     BlogSingleComponent,
     BottomNavbarComponent,
-    ModalComponent
+    ErrorPageComponent,
+    VideoModalComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule, 
     AppRoutingModule,
     NgbModule,
     LightboxModule,

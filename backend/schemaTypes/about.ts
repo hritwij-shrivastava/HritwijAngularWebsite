@@ -105,27 +105,74 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'aboutme',
-      title: 'About me Description',
-      type: 'string',
-      validation: Rule => Rule.max(250).warning(`A short description shouldn't be more than 250 characters.`)
-    }),
-    defineField({
-      name: 'projects',
-      title: 'No. of Projects',
-      type: 'string',
-      validation: Rule => Rule.max(250).warning(`A short description shouldn't be more than 250 characters.`)
-    }),
-    defineField({
-      name: 'clients',
-      title: 'No. of Clients',
-      type: 'string',
-      validation: Rule => Rule.max(250).warning(`A short description shouldn't be more than 250 characters.`)
-    }),
-    defineField({
       name: 'resume',
       title: 'Resume',
       type: 'file'
+    }),
+    defineField({
+      name: 'aboutMeSpan',
+      title: 'AboutMe section first heading',
+      type: 'string'
+    }),
+    defineField({
+      name: 'aboutMeH2',
+      title: 'AboutMe section main heading',
+      type: 'string'
+    }),
+    defineField({
+      name: 'aboutMeP',
+      title: 'AboutMe section paragraph',
+      type: 'string'
+    }),
+    defineField({
+      name: 'aboutMeP2',
+      title: 'AboutMe section second paragraph',
+      type: 'string'
+    }),
+    defineField({
+      name: 'myServicesMeSpan',
+      title: 'My Services section first heading',
+      type: 'string'
+    }),
+    defineField({
+      name: 'myServicesH2',
+      title: 'My Services section main heading',
+      type: 'string'
+    }),
+    defineField({
+      name: 'myServicesP',
+      title: 'My Services Section paragraph',
+      type: 'string'
+    }),
+    defineField({
+      name: 'chooseUsH2',
+      title: 'Choose Us section main heading',
+      type: 'string'
+    }),
+    defineField({
+      name: 'chooseUsP',
+      title: 'Choose Us section main paragraph',
+      type: 'string'
+    }),
+    defineField({
+      name: 'chooseUsH41',
+      title: 'Choose Us section first sub heading',
+      type: 'string'
+    }),
+    defineField({
+      name: 'chooseUsP1',
+      title: 'Choose Us section first sub paragraph',
+      type: 'string'
+    }),
+    defineField({
+      name: 'chooseUsH42',
+      title: 'Choose Us section second sub heading',
+      type: 'string'
+    }),
+    defineField({
+      name: 'chooseUsP2',
+      title: 'Choose Us Section second sub paragraph',
+      type: 'string'
     }),
   ],
 

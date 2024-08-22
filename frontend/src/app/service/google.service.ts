@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class GoogleService {
 
-  private apiUrl = 'https://script.google.com/macros/s/AKfycbz4gi9xqN87HF6GdyQS_vBFsDXmGjwsPgTt1ZVJWhfB-sGQ55FwTvearvM8fUkDMi8I/exec';
+  private apiUrl = 'https://script.google.com/macros/s/AKfycbwaTp53dbdsArI6p2wvcjjc45GeFHrtBJzbb9hNeUd2qEh2gIFxXo5MyFZwp8nh--rO1w/exec';
 
   constructor(private http: HttpClient) { }
 

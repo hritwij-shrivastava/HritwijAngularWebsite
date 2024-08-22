@@ -33,6 +33,7 @@ npm install ngx-youtube-player
 
 ng add @angular/youtube-player
 npm install @sanity/asset-utils
+npm i @angular/animations@latest --save
 
 refs-
 https://flixta.rstheme.com/about/

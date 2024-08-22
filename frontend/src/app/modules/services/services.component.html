@@ -8,138 +8,135 @@
 <!-- End Breadcrumb -->
 
 <div class="firstcontainer">
-    <!-- Start Experience Feeds  ============================================= -->
-    <div style="padding-top: 80px; background: -webkit-linear-gradient(0deg, #766dff 0%, #88f3ff 100%);">
+    <!-- Start Services ============================================= -->
+    <div class="thumb-services-area default-padding carousel-shadow relative bg-cover">
         <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-md-7 heading-section text-center" style="color: #ffff;">
-                    <span class="subheading">Experience Feeds</span>
-                    <h2 style="color: #fff;">Work Experience</h2>
-                </div>
-            </div>
-            <div class="row service-area-wrapper">
-                <div class="col-lg-4 col-md-6" *ngFor="let secrvice of services">
-                    <a href={{secrvice.mainImageUrl}} class="single-service service-modal myrounded">
-                        <img src={{secrvice.mainImageUrl}} alt={{secrvice.title}}>
-                        <h6 class="title">{{secrvice.title}}</h6>
-                        <p>{{secrvice.desc}}</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- End Experience Feeds -->
-
-    <!-- Start Certificate Area ============================================= -->
-    <div class="case-studies-area default-padding-top" style="margin: 0 10px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="site-heading text-center">
-                        <h4>Dashboard Screenshot</h4>
-                        <h2>Let’s See Awesome Software <br> UI Design Scrrenshot</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fill">
-            <div class="case-carousel">
-                <owl-carousel-o [options]="caseStudiesOptions">
-                    <ng-template carouselSlide *ngFor="let album of _albums; let i=index">
-                        <div class="item" (click)="open(i)">
-                            <div class="thumb">
-                                <a class="item popup-gallery"><img src={{album.src}} alt={{album.caption}}></a>
+            <div class="services-items services-carousel owl-carousel owl-theme text-center" style="display: block;">
+                <owl-carousel-o [options]="blogOptions">
+                    <ng-template carouselSlide *ngFor="let serviceBlog of serviceBlogsList">
+                        <!-- Single Item -->
+                        <div class="item">
+                            <div class="icon">
+                                <img src={{serviceBlog.thumbImageUrl}} alt="Icon">
+                            </div>
+                            <div class="info">
+                                <h4>{{serviceBlog.subTitle}}</h4>
+                                <p>
+                                    {{truncateTitle(serviceBlog.description, 136)}}
+                                </p>
+                                <a href="#">Discover More <i class="fas fa-angle-right"></i></a>
                             </div>
                         </div>
+                        <!-- End Single Item -->
                     </ng-template>
                 </owl-carousel-o>
-                
             </div>
         </div>
     </div>
-    <!-- End Certificate Area -->
+    <!-- End Services Area -->
 
-    <!-- Start Hire Me Area ============================================= -->
-    <div style="padding-top: 35px; background: #ffff;">
-        <section class="flat-contact-me">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-7">
-                        <div class="contact-me-content wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                            <h4 class="section-subtitle">Hire Me</h4>
-                            <h2 class="section-45px-montserrat margin-top-15 margin-bottom-45">Any Project in your
-                                mind</h2>
-                            <div class="button-contact-me wow fadeInDown" style="visibility: visible; animation-name: fadeInDown;">
-                                <a to="/contact" class="button-footer arrow-btn btn-st" style="color: white;">Hire Me Now</a>
-                                <a href={{resumeUrl}} target="_blank" rel="noreferrer" class="button-footer clound-down btn-st style-4">Download CV</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="contact-me-post wow fadeInRight" style="visibility: visible; animation-name: fadeInRight;">
-                            <img src="assets/img/boy-sitting-laptop.png" alt="">
-                        </div>
+    <!-- Start Video Area 
+    ============================================= -->
+    <div class="video-area extra-padding text-center default-padding faq-area bg-gray bg-fixed shadow dark text-light" style="background-image: url(assets/img/solar.jpg);">
+        <div class="container">
+            <div class="content">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <h5>Why Choose Me</h5>
+                        <h2>I Offer Reliable IT Services <br> Designed to Support Your Business</h2>
+                        <a class="popup-youtube relative video-play-button">
+                            <i class="fa fa-play" (click)="playVideo(video)"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+        <!-- Fixed Shpae Bottom -->
+        <div class="fixed-shape-bottom">
+            <img src="assets/img/shape/9.png" alt="Shape">
+        </div>
+        <!-- Fixed Shpae Bottom -->
     </div>
-    <!-- End Hire Me Area -->
+    <!-- End Video Area -->
 
-    <!-- Start Blog ============================================= -->
-    <div class="blog-area content-less default-padding bottom-less">
+    <!-- Start Why Choose Us 
+    ============================================= -->
+    <div class="choose-us-area default-padding-bottom">
+        <div class="container">
+            <div class="items-box">
+                <div class="row">
+                    <!-- SIngle item-->
+                    <div class="single-item col-lg-6 col-md-6">
+                        <div class="item">
+                            <div class="info">
+                                <h4>24/7 Customer support</h4>
+                                <p>
+                                    Around-the-clock assistance to ensure your needs are met promptly and effectively. Whether it's day or night, I'm here to help keep your operations running smoothly.
+                                </p>
+                                <div class="call">
+                                    <div class="icons">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div class="info">
+                                        <span>Helpline</span> {{phone}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End SIngle item-->
+                    <!-- SIngle item-->
+                    <div class="single-item col-lg-6 col-md-6">
+                        <div class="item">
+                            <div class="icon">
+                                <i class="fas fa-cubes"></i>
+                            </div>
+                            <div class="info">
+                                <h4>Smart solutions</h4>
+                                <p>
+                                    Innovative strategies designed to streamline your processes and enhance efficiency. My goal is to deliver intelligent solutions that drive meaningful results for your business.
+                                </p>
+                                <a href="/contact" class="btn-more">Start Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End SIngle item-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Why Choose Us Area -->
+     
+    <!-- Start Case Studies Area ============================================= -->
+    <div class="case-studies-area" style="padding-bottom: 50px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
-                        <h4>Popular News</h4>
-                        <h2>Latest From our blog</h2>
+                        <h4>My Expertise</h4>
+                        <h2>Technologies and Tools I Work With</h2>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container owl-theme carousel-shadow custom-owl-container">
+        <div class="clients-area">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="blog-items">
-                            <owl-carousel-o [options]="blogOptions">
-                                <ng-template carouselSlide *ngFor="let recent_post of recent_posts">
-                                    <!-- Single Item -->
-                                    <div class="single-item custom-owl-item">
-                                        <div class="item">
-                                            <div class="thumb">
-                                                <a [routerLink]="['/', section, recent_post.category_name, recent_post.slug.current]">
-                                                    <img src={{recent_post.thumbImageUrl}} alt="Thumb" />
-                                                </a>
-                                            </div>
-                                            <div class="info">
-                                                <div class="cats">
-                                                    <a [routerLink]="['/', section, recent_post.category_name, recent_post.slug.current]">{{recent_post.category_name}}</a>
-                                                </div>
-                                                <div class="meta">
-                                                    <ul>
-                                                        <li><i class="fas fa-calendar-alt"></i>{{ recent_post.publishedTime | date: "dd MMM, yyyy"}}</li>
-                                                        <li>
-                                                            <i class="fas fa-user"></i> By <a [routerLink]="['/', section, recent_post.category_name, recent_post.slug.current]">{{recent_post.author_name}}</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <h4>
-                                                    <a [routerLink]="['/', section, recent_post.category_name, recent_post.slug.current]">{{recent_post.title}}</a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Single Item -->
+                        <div class="main-page-carousel clients-carousel owl-theme">
+                            <owl-carousel-o [options]="partnerOptions">
+                                <ng-template carouselSlide *ngFor="let ext of expertise">
+                                    <a [href]="ext.bannerImageurl" target="_blank"><img src={{ext.bannerImageurl}} alt={{ext.title}}></a>
                                 </ng-template>
                             </owl-carousel-o>
                         </div>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
     </div>
+    <!-- End Case Studies Area -->
+
 </div>
-    <!-- End Blog Area -->
+
+<app-video-modal #videoModal></app-video-modal>    

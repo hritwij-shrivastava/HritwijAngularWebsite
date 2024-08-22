@@ -8,8 +8,8 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class BottomNavbarComponent  implements OnInit {
   isHome: Boolean = false;
-  isInsights: Boolean = false;
-  isAboutus: Boolean = false;
+  isAbout: Boolean = false;
+  isBlog: Boolean = false;
   iscontact: Boolean = false;
 
   constructor(private router: Router) {}
@@ -25,18 +25,17 @@ export class BottomNavbarComponent  implements OnInit {
 
   updateActiveStates() {
     // Update the logic here based on your actual routes
-    this.setAllFalse()
-    console.log()
+    this.setAllFalse();
     this.isHome = this.router.url.startsWith('/home') || this.router.url === '/';
-    this.isInsights = this.router.url.startsWith('/insights');
-    this.isAboutus = this.router.url.startsWith('/about-us');
+    this.isAbout = this.router.url.startsWith('/about');
+    this.isBlog = this.router.url.startsWith('/blog');
     this.iscontact = this.router.url.startsWith('/contact');
   }
 
   setAllFalse(){
     this.isHome = false;
-    this.isInsights = false;
-    this.isAboutus = false;
+    this.isAbout = false;
+    this.isBlog = false;
     this.iscontact = false;
   }
 }

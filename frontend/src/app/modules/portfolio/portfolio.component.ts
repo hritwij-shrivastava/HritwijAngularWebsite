@@ -34,14 +34,13 @@ export class PortfolioComponent implements OnInit {
   }
 
   async getBlogsList()  {
-    this.getCountOfBlogs()
+    this.getCountOfBlogs();
     this.blogsList = await this.sanityService.getBlogsList(this.section, this.start, this.end);
-    this.getAuthorDetails()
-    this.getCategoryDetails()
-    this.updatePublishedAt()
-    this.getThumbImageUrl()
-    this.isLoading = false
-    // console.log(this.blogsList)
+    this.getAuthorDetails();
+    this.getCategoryDetails();
+    this.updatePublishedAt();
+    this.getThumbImageUrl();
+    this.isLoading = false;
   } 
 
   async getAuthorDetails(){
@@ -80,7 +79,6 @@ export class PortfolioComponent implements OnInit {
   }
 
   updateStartEnd(pageNo:number){
-    // console.log(pageNo)
     if(pageNo <= 1){
       this.currentPageNo = 1
     }
@@ -92,10 +90,8 @@ export class PortfolioComponent implements OnInit {
         this.currentPageNo = pageNo
       }
     }
-    // console.log("currenP = ", this.currentPageNo)
     this.start = (this.currentPageNo-1) * this.numberOfItemsPerPage
     this.end = this.start + this.numberOfItemsPerPage
-    // console.log(`[${this.start}, ${this.end}]`);
   }
   
   truncateTitle(title:string, maxLength:number){

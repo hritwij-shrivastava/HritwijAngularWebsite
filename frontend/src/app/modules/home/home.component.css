@@ -232,3 +232,60 @@ img {
     }
     
 }
+
+/* @keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: black; }
+}
+
+.typing-animation {
+  display: block;
+  font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2s steps(20, end) infinite, blink-caret 0.1s step-end infinite;
+} */
+
+/* .typing-animation {
+  display: inline-block;
+  font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid black; 
+  animation: typing 4s steps(30, end) infinite, blink-caret 0.75s step-end infinite;
+} */
+
+.header_title {
+  max-width: 325px;
+  /* width: 325px; */
+}
+
+.typing-erasing-animation {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 1px solid #fff; /* Cursor effect */
+  width: 0; /* Start with zero width */
+  /* animation: typing 6s steps(30, end) 1s forwards, erase 6s steps(30, end) 7s infinite, blink-caret 0.75s step-end infinite; */
+  animation: typing 8s steps(30, end) 1s forwards infinite, erase 6s steps(30, end) 11s forwards infinite, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes erase {
+  from { width: 100%; }
+  to { width: 0; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #fff; }
+}

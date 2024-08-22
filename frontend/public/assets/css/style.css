@@ -7281,7 +7281,7 @@ ul.pagination {
 .contact-tabs .tab-content ul li .info p {
   font-weight: 600;
   color: #0e2b3d;
-  text-transform: uppercase;
+  text-transform: capitalize;
   margin-bottom: 0;
 }
 

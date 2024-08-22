@@ -13,44 +13,34 @@
                         <img src="assets/img/hritwij.png" alt="Logo">
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6 item">
+                <div class="col-lg-4 col-md-6 item">
                     <div class="f-item link">
-                        <h4 class="widget-title">Services</h4>
+                        <h4 class="widget-title">Useful Links</h4>
                         <ul>
-                            <li><a routerLink="/data-analytics">Data &amp; Analytics</a></li>
-                            <li><a routerLink="/cloud">Cloud Computing</a></li>
-                            <li><a routerLink="/intelligent-automation">Intelligent Automation</a></li>
-                            <li><a routerLink="/artificial-intelligence">Artificial Intelligence</a></li>
-                            <li><a routerLink="/cyber-security">Cyber Security</a></li>
+                            <li><a routerLink="/about">About</a></li>
+                            <li><a routerLink="/services">Services</a></li>
+                            <li><a routerLink="/about" fragment="resume">Resume</a></li>
+                            <li><a routerLink="/portfolio">Blogs</a></li>
+                            <li><a routerLink="/contact">Get in Touch</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 item">
-                    <div class="f-item link">
-                        <h4 class="widget-title">News</h4>
-                        <ul>
-                            <li><a routerLink="/press-releases">Press releases</a></li>
-                            <li><a routerLink="/corporate-social-responsibility">Corporate Social Responsibility</a>
-                            </li>
-                            <li><a routerLink="/social-media">Social media</a></li>
-                            <li><a routerLink="/events">Events</a></li>
-                            <li><a routerLink="/explore">Explore</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 item">
+                <div class="col-lg-4 col-md-6 item">
                     <div class="f-item">
                         <h4 class="widget-title">Contact Info</h4>
                         <div class="address">
                             <ul>
                                 <li>
                                     <strong>Address:</strong>
-                                    Flat No- B405, Block B, Mahendra Abasan, Naipukur, West Bengal-700135
+                                    {{address}}
                                 </li>
                                 <li>
                                     <strong>Email:</strong>
-                                    <a href="mailto:{{ 'support@cetosoft.com' }}">{{ 'support@cetosoft.com' }}</a>
+                                    <a href="mailto:{{ email }}">{{ email }}</a>
+                                </li>
+                                <li>
+                                    <strong>Phone:</strong>
+                                    <a >{{ phone }}</a>
                                 </li>
                             </ul>
                         </div>
@@ -64,9 +54,54 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-md-12">
-                    <p style="color: #fff;">&copy; 2024 <a routerLink="/" style="color: #fff; text-align: center;">Cetosoft Infotech Pvt.
-                            Ltd.</a> All Rights Reserved.</p>
+                <div class="col-lg-6 col-md-6">
+                    <p style="color: #fff; margin-bottom: 10px;">&copy; 2024 <a routerLink="/" style="color: #fff;">Hritwij Shrivastava</a> All Rights Reserved.</p>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <ul class="social-icn-ul base-footer-pad-MV" style="margin-bottom: 10px;">
+                        <li class="social-icn-ul-list">
+                            <a class="social-icn-item" [href]="linkedinUrl" target="_blank">
+                                <img class="social-icn-item-icon" alt="linkedin" src="assets/img/svg/linkedin-in.svg">
+                                <span class="sr-only">Open in New Tab linkedin</span>
+                            </a>
+                        </li>
+                        <li class="social-icn-ul-list">
+                            <a class="social-icn-item" [href]="githubUrl" target="_blank">
+                                <img class="social-icn-item-icon" alt="Github" src="assets/img/svg/github.svg">
+                                <span class="sr-only">Open in New Tab Github</span>
+                            </a>
+                        </li>
+                        <li class="social-icn-ul-list">
+                            <a class="social-icn-item" [href]="kaggleUrl" target="_blank">
+                                <img class="social-icn-item-icon" alt="Kaggle" src="assets/img/svg/kaggle.svg">
+                                <span class="sr-only">Open in New Tab Kaggle</span>
+                            </a>
+                        </li>
+                        <li class="social-icn-ul-list">
+                            <a class="social-icn-item" [href]="twitterUrl" target="_blank">
+                                <img class="social-icn-item-icon" alt="Twitter" src="assets/img/svg/x-twitter.svg">
+                                <span class="sr-only">Open in New Tab Twitter</span>
+                            </a>
+                        </li>
+                        <!-- <li class="social-icn-ul-list">
+                            <a class="social-icn-item" [href]="instagramUrl" target="_blank">
+                                <img class="social-icn-item-icon" alt="Instagram" src="assets/img/svg/instagram.svg">
+                                <span class="sr-only">Open in New Tab Instagram</span>
+                            </a>
+                        </li> -->
+                        <li class="social-icn-ul-list">
+                            <a class="social-icn-item" [href]="facebookUrl" target="_blank">
+                                <img class="social-icn-item-icon" alt="Facebook" src="assets/img/svg/facebook.svg">
+                                <span class="sr-only">Open in New Tab Facebook</span>
+                            </a>
+                        </li>
+                        <li class="social-icn-ul-list">
+                            <a class="social-icn-item" [href]="youtubeUrl" target="_blank">
+                                <img class="social-icn-item-icon" alt="Youtube" src="assets/img/svg/youtube.svg">
+                                <span class="sr-only">Open in New Tab Youtube</span>
+                            </a>
+                        </li>
+                    </ul>   
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <h5></h5>

@@ -34,6 +34,15 @@ export class ContactComponent implements OnInit {
   countryCode: CountryData = { countries: [] };
   isSpinner: Boolean = false;
   about_details: any = [];
+  socialMedia_list: any = [];
+  linkedinUrl: string = '';
+  twitterUrl: string = '';
+  instagramUrl: string = '';
+  facebookUrl: string = '';
+  youtubeUrl: string = '';
+  githubUrl: string = '';
+  kaggleUrl: string = '';
+  isSocialMedia:Boolean = false;
   alertMessage: SweetAlertOptions = {
     icon: 'warning',
     title: 'Oops!',
@@ -50,6 +59,7 @@ export class ContactComponent implements OnInit {
     );
     this.getCountryCode();
     this.getAbout();
+    this.getSocialMedia();
   }
 
   async getAbout() {
@@ -74,8 +84,6 @@ export class ContactComponent implements OnInit {
       
       this.googleService.sendPostRequest(requestData).subscribe({
         next: (response) => {
-          // console.log('API Response:', response);
-          // Handle success response here
           this.isSpinner = false;
           this.alertMessage = {
             icon: 'success',
@@ -96,7 +104,6 @@ export class ContactComponent implements OnInit {
           this.comments.nativeElement.value = '';
         },
         error: (error) => {
-          // console.error('API Error:', error);
           // Handle error response here
           this.isSpinner = false;
           this.alertMessage = {
@@ -136,15 +143,48 @@ export class ContactComponent implements OnInit {
     this.jsonDataService.getJsonData().subscribe({
       next: (response) => {
         this.countryCode = response;
-        // console.log(this.countryCode["countries"]);
       },
       error: (error) => {
-        // console.error('API Error:', error);
-        // Handle error response here
         console.error('Error fetching data', error);
       }
 
     });
+  }
+
+  async getSocialMedia() {
+    this.socialMedia_list = await this.sanityService.getSocialMedia()
+    for(let i=0; i<this.socialMedia_list.length; i++){
+      let title = this.socialMedia_list[i]["title"]
+      if(title=="linkedin"){
+        this.linkedinUrl = this.socialMedia_list[i]["url"]
+      }
+      if(title=="twitter"){
+        this.twitterUrl = this.socialMedia_list[i]["url"]
+      }
+      if(title=="instagram"){
+        this.instagramUrl = this.socialMedia_list[i]["url"]
+      }
+      if(title=="facebook"){
+        this.facebookUrl = this.socialMedia_list[i]["url"]
+      }
+      if(title=="youtube"){
+        this.youtubeUrl = this.socialMedia_list[i]["url"]
+      }
+      if(title=="github"){
+        this.githubUrl = this.socialMedia_list[i]["url"]
+      }
+      if(title=="kaggle"){
+        this.kaggleUrl = this.socialMedia_list[i]["url"]
+      }
+    }
+  }
+
+  onShowSocialMedia(){
+    this.isSocialMedia = true;
+  }
+
+  onHideSocialMedia(){
+    this.isSocialMedia = false;
   }
 
 
