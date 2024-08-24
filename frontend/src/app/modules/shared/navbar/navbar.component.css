@@ -170,6 +170,18 @@
     }
 }
 
+@media (min-width: 1200px) {
+    .navbar-header {
+      position: relative;
+      width: 40%;
+    }
+    #navbarNav {
+      position: relative;
+      width: 60%;
+      float: right;
+    }
+  }
+
 @media (min-width: 768px) {
     .navbar-header {
         float: left;

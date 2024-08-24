@@ -62,6 +62,8 @@ export class TutorialSingleComponent implements OnInit {
       this.tutorialSlug = params.get('tutorialSlug') ?? '';
       this.topicSlug = params.get('topicSlug') ?? '';
     });
+
+    this.isShowSideBarOnLoad();
     this.getSideBarDetails();
     this.getRecentPosts();
     this.getToptagList();
@@ -134,10 +136,6 @@ export class TutorialSingleComponent implements OnInit {
   convertString2Date(value: string) {
     return new Date(value);
   }
-
-
-
-
 
 
   async getTopicTitleSlugAndSubtopic(topicId:string) {
@@ -335,4 +333,12 @@ export class TutorialSingleComponent implements OnInit {
     this.showSidebar = !this.showSidebar
   }
 
+  private isShowSideBarOnLoad(){
+    if (isPlatformBrowser(this.platformId)) {
+      const screenWidth = window.innerWidth;
+      if(screenWidth > 1200){
+        this.showSidebar = true;
+      }
+    }
+  }
 }
