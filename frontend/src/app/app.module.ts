@@ -41,6 +41,8 @@ import { BlogSingleComponent } from './modules/blog-single/blog-single.component
 import { BottomNavbarComponent } from './modules/shared/bottom-navbar/bottom-navbar.component';
 import { ErrorPageComponent } from './modules/error-page/error-page.component';
 import { VideoModalComponent } from './modules/services/video-modal/video-modal.component';
+import { TutorialComponent } from './modules/tutorial/tutorial.component';
+import { TutorialSingleComponent } from './modules/tutorial-single/tutorial-single.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { VideoModalComponent } from './modules/services/video-modal/video-modal.
     BlogSingleComponent,
     BottomNavbarComponent,
     ErrorPageComponent,
-    VideoModalComponent
+    VideoModalComponent,
+    TutorialComponent,
+    TutorialSingleComponent
   ],
   imports: [
     BrowserModule,

@@ -24,7 +24,7 @@
                                 <p>
                                     {{truncateTitle(serviceBlog.description, 136)}}
                                 </p>
-                                <a href="#">Discover More <i class="fas fa-angle-right"></i></a>
+                                <a [routerLink]="['/', section, serviceBlog.category_name, serviceBlog.slug.current]">Discover More <i class="fas fa-angle-right"></i></a>
                             </div>
                         </div>
                         <!-- End Single Item -->

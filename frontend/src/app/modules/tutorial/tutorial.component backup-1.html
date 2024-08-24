@@ -1,0 +1,73 @@
+<!-- Start Breadcrumb  ============================================= -->
+<div class="breadcrumb-area bg-fixed" style="background-image: url(assets/img/Main-Bg.png);">
+  <h2>Blog</h2>
+  <div class="breadcrumb-navtext">
+      <h5><span>Home </span><i class="fa fa-angle-right"></i><span> Blog</span></h5>
+  </div>
+</div>
+<!-- End Breadcrumb -->
+
+<div class="firstcontainer">
+    <!-- Start Blog ============================================= -->
+    <div class="blog-area full-blog blog-standard full-blog grid-colum default-padding">
+        <div class="container">
+            <div class="blog-items">
+                <div class="blog-content">
+                    <div class="blog-item-box">
+                        <div class="row">
+                            <!-- Single Item -->
+                            <div class="col-lg-4 col-md-6 single-item"  *ngFor="let tutorials of tutorialsList" >
+                                <div class="item wow fadeInUp" data-wow-delay="500ms">
+                                    <div class="thumb">
+                                        <a [routerLink]="['/', section, tutorials.category_name, tutorials.slug.current]">
+                                            <img src={{tutorials.thumbImageUrl}} alt="Thumb">
+                                        </a>
+                                    </div>
+                                    <div class="info">
+                                        <div class="cats">
+                                            <a [routerLink]="['/', section, tutorials.category_name, tutorials.slug.current]">{{tutorials.category_name}}</a>
+                                        </div>
+                                        <div class="meta">
+                                            <ul>
+                                                <li><i class="fas fa-calendar-alt"></i>{{tutorials.publishedAt | date: "dd  MMM, yyyy"}}</li>
+                                                <li>By <a [routerLink]="['/', section, tutorials.category_name, tutorials.slug.current]">{{tutorials.author_name}}</a></li>
+                                            </ul>
+                                        </div>
+                                        <h4>
+                                            <a [routerLink]="['/', section, tutorials.category_name, tutorials.slug.current]">{{tutorials.title}}</a>
+                                        </h4>
+                                        <p>
+                                            {{truncateTitle(tutorials.description, 107)}}
+                                        </p>
+                                        <a class="btn circle btn-theme effect btn-md" [routerLink]="['/', section, tutorials.category_name, tutorials.slug.current]">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Single Item -->
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <div class="row">
+                            <div class="col-md-12 pagi-area text-center">
+                                <nav aria-label="navigation">
+                                    <ul class="pagination">
+                                        <li class="page-item">
+                                            <a class="page-link" (click)="updateStartEnd(currentPageNo-1)"><i class="fas fa-angle-double-left"></i></a>
+                                        </li>
+                                        <li class="page-item" [class.active]="i+1==currentPageNo" *ngFor="let item of [].constructor(pageRange); let i = index">
+                                            <a class="page-link" (click)="updateStartEnd(i+1)">{{i+1}}</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link" (click)="updateStartEnd(currentPageNo+1)"><i class="fas fa-angle-double-right"></i></a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Blog -->
+</div>

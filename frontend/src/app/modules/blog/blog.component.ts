@@ -74,7 +74,7 @@ export class BlogComponent implements OnInit {
 
   getThumbImageUrl() {
     for(let i=0; i<this.blogsList.length; i++){
-      this.blogsList[i].thumbImageUrl = this.sanityService.urlForImage(this.blogsList[i].mainImage.asset)
+      this.blogsList[i].thumbImageUrl = this.sanityService.urlForImage(this.blogsList[i].bannerImage.asset)
     }
   }
 

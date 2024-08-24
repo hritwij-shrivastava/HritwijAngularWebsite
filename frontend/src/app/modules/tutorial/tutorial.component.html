@@ -1,0 +1,59 @@
+<!-- Start Breadcrumb  ============================================= -->
+<div class="breadcrumb-area bg-fixed" style="background-image: url(assets/img/Main-Bg.png);">
+  <h2>Tutorial</h2>
+  <div class="breadcrumb-navtext">
+      <h5><span>Home </span><i class="fa fa-angle-right"></i><span> Tutorial</span></h5>
+  </div>
+</div>
+<!-- End Breadcrumb -->
+
+<div class="firstcontainer">
+    <!-- Start Services ============================================= -->
+    <div class="thumb-services-area default-padding carousel-shadow relative bg-cover">
+        <div class="container">
+            <div class="services-items services-carousel tutorial-carousel text-center" style="display: block;">
+                <div class="row">
+                    <ng-container *ngFor="let tutorial of tutorialsList">
+                        <!-- Single Item -->
+                        <div class="col-lg-4 col-md-6 single-item">
+                            <div class="item">
+                                <div class="icon">
+                                    <img src={{tutorial.thumbImageUrl}} alt="Icon">
+                                </div>
+                                <div class="info">
+                                    <h4>{{tutorial.title}}</h4>
+                                    <p>
+                                        {{truncateTitle(tutorial.description, 136)}}
+                                    </p>
+                                    <a  [routerLink]="['/', section, tutorial.tutorialSlug, tutorial.firstTopicSlug]">Discover More <i class="fas fa-angle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Item -->
+                    </ng-container>
+                </div>
+                <!-- Pagination -->
+                <div class="row">
+                    <div class="col-md-12 pagi-area text-center">
+                        <nav aria-label="navigation">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" (click)="updateStartEnd(currentPageNo-1)"><i class="fas fa-angle-double-left"></i></a>
+                                </li>
+                                <li class="page-item" [class.active]="i+1==currentPageNo" *ngFor="let item of [].constructor(pageRange); let i = index">
+                                    <a class="page-link" (click)="updateStartEnd(i+1)">{{i+1}}</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" (click)="updateStartEnd(currentPageNo+1)"><i class="fas fa-angle-double-right"></i></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Services Area -->
+
+
+</div>

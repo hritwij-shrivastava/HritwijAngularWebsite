@@ -1,0 +1,175 @@
+<!-- Start Blog ============================================= -->
+<button type="button" class="navbar-toggle custom-nav" id="navbarBtn" data-target="#navbarNav" [attr.aria-expanded]="showSidebar" aria-label="Toggle navigation" (click)="expandSidebar()" style="position: fixed;">
+    <i class="fas fa-chevron-right" *ngIf="!showSidebar"></i>
+    <i class="fas fa-chevron-left" *ngIf="showSidebar"></i>
+</button>
+<aside class="page-sidebar" [class.hide]="!showSidebar" id="pageSidebar">
+    <div class="main-sidebar" id="main-sidebar">
+        <ul class="sidebar-menu resizable-div" id="simple-bar" data-simplebar="init" style="padding-right: 5px;" #resizableDiv>
+            <div class="simplebar-wrapper">
+                <div class="simplebar-mask">
+                    <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                        <div class="simplebar-content-wrapper" style="height: 100%;">
+                            <div class="simplebar-content" style="padding: 15px 25px; padding-right: 5px;">
+                                <div *ngFor="let heading of headingList; let i=index">
+                                    <li class="sidebar-main-title">
+                                        <div>
+                                            <h5 class="lan-1 f-w-700 sidebar-title">{{heading.mainTitle}}</h5>
+                                        </div>
+                                    </li>
+                                    <li class="sidebar-list" [class.active]="subHeading.slug===topicSlug" *ngFor="let subHeading of heading.subHeadingList; let j=index">
+                                        <a class="sidebar-link" (click)="toggleSubMenu(i,j)">
+                                            <i class="fad fa-book-open" *ngIf="subHeading.slug===topicSlug"></i>
+                                            <i class="fal fa-book-open" *ngIf="!(subHeading.slug===topicSlug)"></i>
+                                            <h6 (click)="navigate(subHeading.slug)">{{subHeading.title}}</h6>
+                                            <i class="fas fa-angle-right" *ngIf="(!subHeading.isopenSubTopic) && (subHeading.subTopicList.length>0)"></i>
+                                            <i class="fas fa-chevron-down" *ngIf="(subHeading.isopenSubTopic) && (subHeading.subTopicList.length>0)"></i>
+                                        </a>
+                                        <ul class="sidebar-submenu" [class.show]="subHeading.isopenSubTopic">
+                                            <li *ngFor="let subTopic of subHeading.subTopicList"><a [class.active]="subTopic.slug===topicSlug" (click)="navigate(subTopic.slug)">{{subTopic.title}}</a></li>
+                                        </ul>
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ul>
+        
+        <div class="resizer" id="resizer" #resizer></div>
+    </div>
+</aside>
+<div class="blog-area single full-blog right-sidebar full-blog default-padding">
+    <div class="container">
+        <div class="blog-items">
+            <div class="row">
+                <div class="blog-content wow fadeInUp col-lg-8 col-md-12">
+                    <div class="item">
+                        <div *ngIf="isLoading">Loading...</div>
+                        <div *ngIf="!isLoading && topicList.length > 0">
+                            <div class="blog-item-box">
+                                <!-- Start Post Thumb -->
+                                <div class="thumb">
+                                    <a [routerLink]="['/', section, category_name, topicSlug]">
+                                        <img src={{thumbImageUrl}} alt="Thumb">
+                                    </a>
+                                </div>
+                                <!-- Start Post Thumb -->
+
+                                <div class="info">
+                                    <div class="cats">
+                                        <a [routerLink]="['/', section, category_name, topicSlug]">{{category_name}}</a>
+                                    </div>
+                                    <div class="meta">
+                                        <ul>
+                                            <li><i class="fas fa-calendar-alt"></i> {{ publishedAt | date: "dd  MMM, yyyy"}}</li>
+                                            <li>By <a [routerLink]="['/', section, category_name, topicSlug]">{{author_name}}</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <h3>{{title}}</h3>
+                                    <div [innerHTML]="bodyContent"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Start Post Pagination -->
+                    <div class="post-pagi-area">
+                        <div class="row">
+                            <div class="col-lg-6 tmp-width">
+                                <a (click)="navigate(adjacent_post.previousPost.slug)" *ngIf="!isLoading && adjacent_post.previousPost.slug" style="float: left; cursor: pointer;">
+                                    <i class="fas fa-angle-double-left"></i> Previus Post
+                                    <h5>{{truncateTitle(adjacent_post.previousPost.title, 15)}}</h5>
+                                </a>
+                            </div>
+                            <div class="col-lg-6 tmp-width">
+                                <a (click)="navigate(adjacent_post.nextPost.slug)" *ngIf="!isLoading && adjacent_post.nextPost.slug" style="float: right; cursor: pointer;">
+                                    Next Post <i class="fas fa-angle-double-right"></i>
+                                    <h5>{{truncateTitle(adjacent_post.nextPost.title, 15)}}</h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Post Pagination -->
+
+                    <!-- Start Post Tags-->
+                    <div class="post-tags share">
+                        <div class="col-lg-6">
+                            <div class="tags">
+                                <a href="#" *ngFor="let tag of tags_list" style="float: left;">
+                                    {{tag}}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Post Tags -->
+                </div>
+                <!-- Start Sidebar -->
+                <div class="sidebar wow fadeInLeft col-lg-4 col-md-12">
+                    <aside>
+                        <div class="sidebar-item recent-post">
+                            <div class="title">
+                                <h4>Recent Post</h4>
+                            </div>
+                            <ul>
+                                <li *ngFor="let recent_post of recent_posts">
+                                    <div class="thumb">
+                                        <a href="#">
+                                            <img src={{recent_post.thumbImageUrl}} alt="Thumb">
+                                        </a>
+                                    </div>
+                                    <div class="info">
+                                        <a href="#">{{recent_post.title}}</a>
+                                        <div class="meta-title">
+                                            <span class="post-date"><i class="fas fa-clock"></i>{{ recent_post.publishedTime | date: "dd  MMM, yyyy"}}</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-item category">
+                            <div class="title">
+                                <h4>category list</h4>
+                            </div>
+                            <div class="sidebar-info">
+                                <ul>
+                                    <li *ngFor="let category of top_categories_list" >
+                                        <a href="#">{{category.title}} <span>({{category.count}})</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sidebar-item social-sidebar">
+                            <div class="title">
+                                <h4>follow us</h4>
+                            </div>
+                            <div class="sidebar-info">
+                                <ul>
+                                    <li class={{social_media.title}} *ngFor="let social_media of socialMedia_list">
+                                        <a href={{social_media.url}} target="_blank">
+                                            <i class={{social_media.cssClass}}></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sidebar-item tags">
+                            <div class="title">
+                                <h4>tags</h4>
+                            </div>
+                            <div class="sidebar-info">
+                                <ul>
+                                    <li><a href="#" *ngFor="let tag of top_tags_list">{{tag.title}}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+                <!-- End Start Sidebar -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Blog -->

@@ -1,0 +1,211 @@
+<!-- Start Blog
+============================================= -->
+<aside class="page-sidebar">
+    <div class="main-sidebar" id="main-sidebar">
+        <ul class="sidebar-menu resizable-div" id="simple-bar" data-simplebar="init" style="padding-right: 5px; width: 280px;" #resizableDiv>
+            <div class="simplebar-wrapper">
+                <div class="simplebar-mask">
+                    <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                        <div class="simplebar-content-wrapper" style="height: 100%;">
+                            <div class="simplebar-content" style="padding: 15px 25px; padding-right: 5px;">
+                                <div>
+                                    <li class="sidebar-main-title">
+                                        <div>
+                                            <h5 class="lan-1 f-w-700 sidebar-title">General</h5>
+                                        </div>
+                                    </li>
+                                    <li class="sidebar-list">
+                                        <a class="sidebar-link">
+                                            <!-- <i class="fal fa-book-open"></i> -->
+                                            <i class="fad fa-book-open"></i>
+                                            <h6>Dashboards</h6>
+                                            <!-- <i class="fas fa-angle-right"></i> -->
+                                            <i class="fas fa-chevron-down"></i>
+                                        </a>
+                                        <ul class="sidebar-submenu" style="display: block;">
+                                            <li><a>Default</a></li>
+                                            <li><a>Ecommerce </a></li>
+                                            <li><a>Education</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="sidebar-list">
+                                        <a class="sidebar-link">
+                                            <i class="fal fa-book-open"></i>
+                                            <h6>Widgets</h6>
+                                            <i class="fas fa-angle-right"></i>
+                                            <!-- <i class="fas fa-chevron-down"></i> -->
+                                        </a>
+                                        <ul class="sidebar-submenu" style="display: block;">
+                                            <li><a>General</a></li>
+                                            <li><a>Chart </a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="sidebar-list">
+                                        <a class="sidebar-link">
+                                            <i class="fal fa-book-open"></i>
+                                            <h6 class="lan-3">Page layout</h6>
+                                            <i class="fas fa-angle-right"></i>
+                                            <!-- <i class="fas fa-chevron-down"></i> -->
+                                        </a>
+                                        <ul class="sidebar-submenu" style="display: block;">
+                                            <li><a>Box Layout</a></li>
+                                            <li><a>RTL</a></li>
+                                            <li><a>Dark</a></li>
+                                        </ul>
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ul>
+        
+        <div class="resizer" id="resizer" #resizer></div>
+    </div>
+</aside>
+<div class="blog-area single full-blog right-sidebar full-blog default-padding">
+    <div class="container">
+        <div class="blog-items">
+            <div class="row">
+                <div class="blog-content wow fadeInUp col-lg-8 col-md-12">
+                    <div class="item">
+                        <div *ngIf="isLoading">Loading...</div>
+                        <div *ngIf="!isLoading && topicList.length > 0">
+                            <div class="blog-item-box">
+                                <!-- Start Post Thumb -->
+                                <div class="thumb">
+                                    <a [routerLink]="['/', section, category_name, topicSlug]">
+                                        <img src={{thumbImageUrl}} alt="Thumb">
+                                    </a>
+                                </div>
+                                <!-- Start Post Thumb -->
+
+                                <div class="info">
+                                    <div class="cats">
+                                        <a [routerLink]="['/', section, category_name, topicSlug]">{{category_name}}</a>
+                                    </div>
+                                    <div class="meta">
+                                        <ul>
+                                            <li><i class="fas fa-calendar-alt"></i> {{ publishedAt | date: "dd  MMM, yyyy"}}</li>
+                                            <li>By <a [routerLink]="['/', section, category_name, topicSlug]">{{author_name}}</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <h3>{{title}}</h3>
+                                    <div [innerHTML]="bodyContent"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Start Post Pagination -->
+                    <div class="post-pagi-area">
+                        <div class="row">
+                            <div class="col-lg-6 tmp-width">
+                                <a [routerLink]="['/', section, adjacent_post.previousPost.category_name, adjacent_post.previousPost.slug.current]" *ngIf="!isLoading && adjacent_post.previousPost" style="float: left;">
+                                    <i class="fas fa-angle-double-left"></i> Previus Post
+                                    <h5>{{truncateTitle(adjacent_post.previousPost.title, 15)}}</h5>
+                                </a>
+                            </div>
+                            <div class="col-lg-6 tmp-width">
+                                <a [routerLink]="['/', section, adjacent_post.nextPost.category_name, adjacent_post.nextPost.slug.current]"*ngIf="!isLoading && adjacent_post.nextPost" style="float: right;">
+                                    Next Post <i class="fas fa-angle-double-right"></i>
+                                    <h5>{{truncateTitle(adjacent_post.nextPost.title, 15)}}</h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Post Pagination -->
+
+                    <!-- Start Post Tags-->
+                    <div class="post-tags share">
+                        <div class="col-lg-6">
+                            <div class="tags">
+                                <a href="#" *ngFor="let tag of tags_list" style="float: left;">
+                                    {{tag}}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="social" style="float: right;">
+                                <ul>
+                                    <li class={{social_media.title}} *ngFor="let social_media of socialMedia_list">
+                                        <a href={{social_media.url}} target="_blank">
+                                            <i class={{social_media.cssClass}}></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- End Post Tags -->
+                </div>
+                <!-- Start Sidebar -->
+                <div class="sidebar wow fadeInLeft col-lg-4 col-md-12">
+                    <aside>
+                        <div class="sidebar-item recent-post">
+                            <div class="title">
+                                <h4>Recent Post</h4>
+                            </div>
+                            <ul>
+                                <li *ngFor="let recent_post of recent_posts">
+                                    <div class="thumb">
+                                        <a href="#">
+                                            <img src={{recent_post.thumbImageUrl}} alt="Thumb">
+                                        </a>
+                                    </div>
+                                    <div class="info">
+                                        <a href="#">{{recent_post.title}}</a>
+                                        <div class="meta-title">
+                                            <span class="post-date"><i class="fas fa-clock"></i>{{ recent_post.publishedTime | date: "dd  MMM, yyyy"}}</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-item category">
+                            <div class="title">
+                                <h4>category list</h4>
+                            </div>
+                            <div class="sidebar-info">
+                                <ul>
+                                    <li *ngFor="let category of top_categories_list" >
+                                        <a href="#">{{category.title}} <span>({{category.count}})</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sidebar-item social-sidebar">
+                            <div class="title">
+                                <h4>follow us</h4>
+                            </div>
+                            <div class="sidebar-info">
+                                <ul>
+                                    <li class={{social_media.title}} *ngFor="let social_media of socialMedia_list">
+                                        <a href={{social_media.url}} target="_blank">
+                                            <i class={{social_media.cssClass}}></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sidebar-item tags">
+                            <div class="title">
+                                <h4>tags</h4>
+                            </div>
+                            <div class="sidebar-info">
+                                <ul>
+                                    <li><a href="#" *ngFor="let tag of top_tags_list">{{tag.title}}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+                <!-- End Start Sidebar -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Blog -->

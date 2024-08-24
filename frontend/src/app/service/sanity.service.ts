@@ -187,6 +187,20 @@ export class SanityService {
       `*[_type == "social"]`
     );
   }
+
+  // Tutorial Related Services Start =========================
+
+  async getTopicDetails(topicId:any){
+    return await this.sanityClientCredentials.fetch(
+      `*[_type == "topic" && _id == $topicId]`, { topicId }
+    );
+  }
+
+  async getTopicSlug(topicId:any) {
+    return await this.sanityClientCredentials.fetch(
+      `*[_type == "topic" && _id == $topicId]{slug}`, { topicId }
+    );
+  }
   
 }
 

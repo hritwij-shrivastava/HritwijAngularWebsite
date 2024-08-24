@@ -8,6 +8,8 @@ import { BlogComponent } from './modules/blog/blog.component';
 import { ContactComponent } from './modules/contact/contact.component';
 import { BlogSingleComponent } from './modules/blog-single/blog-single.component';
 import { ErrorPageComponent } from './modules/error-page/error-page.component';
+import { TutorialComponent } from './modules/tutorial/tutorial.component';
+import { TutorialSingleComponent } from './modules/tutorial-single/tutorial-single.component';
 
 
 const routes: Routes = [
@@ -16,9 +18,12 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'services', component: ServicesComponent },
   { path: 'portfolio', component: PortfolioComponent },
+  { path: 'tutorials', component: TutorialComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'tutorial/:tutorialSlug/:topicSlug', component: TutorialSingleComponent },
   { path: ':section/:category/:slug', component: BlogSingleComponent },
+  // { path: 'tutorial/:category/:mainTopic/:subTopic/:slug', component: TutorialSingleComponent },
   { path: '**', component: ErrorPageComponent }
 ];
 

@@ -13,6 +13,8 @@ import services from './services'
 import certificate from './certificate'
 import skills from './skills'
 import serviceBlog from './serviceBlog'
+import tutorial from './tutorial'
+import topic from './topic'
 
 
-export const schemaTypes = [blockContent, about, education, experience, expertise, skills, services, certificate, blog, portfolio, serviceBlog, author, category, tags, social]
+export const schemaTypes = [blockContent, about, social, education, experience, expertise, skills, services, certificate, author, category, tags, blog, portfolio, serviceBlog, topic, tutorial]

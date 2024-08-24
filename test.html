@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .resizable-div {
+            width: 200px;
+            height: 100px;
+            border: 2px solid #000;
+            padding: 10px;
+            position: relative;
+        }
+
+        .resizer {
+            width: 10px;
+            height: 100%;
+            background: #ccc;
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor: ew-resize;
+        }
+    </style>
+</head>
+<body>
+    <div class="resizable-div" id="resizableDiv">
+        This is a resizable div.
+        <div class="resizer" id="resizer"></div>
+    </div>
+
+    <script>
+        const resizableDiv = document.getElementById('resizableDiv');
+        const resizer = document.getElementById('resizer');
+
+        resizer.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+            document.addEventListener('mousemove', resize);
+            document.addEventListener('mouseup', stopResize);
+        });
+
+        function resize(e) {
+            resizableDiv.style.width = e.pageX - resizableDiv.offsetLeft + 'px';
+        }
+
+        function stopResize() {
+            document.removeEventListener('mousemove', resize);
+            document.removeEventListener('mouseup', stopResize);
+        }
+    </script>
+</body>
+</html>
