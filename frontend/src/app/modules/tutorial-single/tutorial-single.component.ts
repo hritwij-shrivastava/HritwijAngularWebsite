@@ -100,9 +100,16 @@ export class TutorialSingleComponent implements OnInit {
 
   // Helper function to extract HTML from body array
   private getHtmlContent(bodyArray: any[]): string {
-    return bodyArray.map(block => block.children.map((child: { text: any; }) => child.text).join('')).join('');
+    return bodyArray
+      .map(block => {
+        // Check if the block has a 'children' property
+        if (block.children) {
+          return block.children.map((child: { text: any }) => child.text).join('');
+        }
+        return ''; // For blocks without 'children', return an empty string
+      })
+      .join('');
   }
-
   private sanitizeBody() {
     if (this.topicList[0] && this.topicList[0].body && this.topicList[0].body.length > 0) {
       // Sanitize and assign HTML content

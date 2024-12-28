@@ -46,3 +46,11 @@
     float: left;
     margin-left: 15px;
 }
+
+.extra-left-padding {
+    padding-left: 380px;
+}
+
+.tutorial-extra-left-padding {
+    padding-left: 300px;
+}
